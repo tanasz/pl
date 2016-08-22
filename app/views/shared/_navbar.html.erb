@@ -29,9 +29,10 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-
           <% if user_signed_in? && current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif user_signed_in? %>
+            <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -57,7 +58,6 @@
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
     <% end %>
 
     <!-- Button (call-to-action) -->
@@ -76,4 +76,3 @@
     </div>
   </div>
 </div>
-
