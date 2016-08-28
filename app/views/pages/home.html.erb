@@ -1,11 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome on Appli-Lutte</h1>
+<p><%= l(Time.now) %><p>
+<p><%= t('hello') %></p>
 
-<p>@message</p>
-
+<%#------- page bottom social buttons -------%>
 <div
   class="fb-like"
   data-share="true"
   data-width="450"
   data-show-faces="true">...
 </div>
+
+<%#------- yield balise title -------%>
+<% content_for(:title) do %>Appli-Lutte de Paris Lutte !<% end %>
+
+<%#------- yield meta description -------%>
+<% content_for(:description) do %>
+Paris Lutte c'est bon mangez-en !
+<% end %>
