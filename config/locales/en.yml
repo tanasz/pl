@@ -20,17 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  # global
   app_name: "Paris Lutte app!"
   app_meta: "Be cute with Paris Lutte"
-  hello: "Welcome"
+
+  # navbar
+  profile: "Profile"
+  sign_out: "Log out"
+
+  # homepage
+  welcome: "Welcome"
+  authentify: "Please log in"
   tab_home: "Home"
   tab_members: "Members"
-  tab_sessions: "Sessions"
-  tab_attendance: "Attendance"
+  tab_trainings: "Sessions"
+  tab_attendances: "Attendance"
   tab_stats: "Stats"
   text_home: "You will find plenty of info here"
   text_members: "All about our club members"
-  text_sessions: "All our training sessions"
+  text_trainings: "All our training sessions"
   text_attendance: "All about the attendance to our training sessions"
   text_stats: "Various stats"
+  members_1: "List members"
+  members_2: "Add a member"
+  members_3: "List memberships"
+  members_4: "Add a membership"
+  trainings_1: "List sessions"
+  trainings_2: "Add a session"
+  trainings_3: "Log participations"
+  stats_1: "My stat 1"
+  stats_2: "My stat 2"
+
+
 

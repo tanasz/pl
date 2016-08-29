@@ -20,9 +20,38 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  # global
   app_name: "Appli-Lutte de Paris Lutte !"
   app_meta: "Paris Lutte c'est bon mangez-en !"
-  hello: "Bienvenue"
+
+  # navbar
+  profile: "Profil"
+  sign_out: "Déconnexion"
+
+  # homepage
+  welcome: "Bienvenue"
+  authentify: "Merci de vous authentifier"
+  tab_home: "Accueil"
+  tab_members: "Membres"
+  tab_trainings: "Sessions"
+  tab_attendances: "Participation"
+  tab_stats: "Stats"
+  text_home: "Plein d'infos ici"
+  text_members: "Les membres de notre club"
+  text_sessions: "Nos séances d'entraînement"
+  text_attendance: "La participation à nos séances d'entraînement"
+  text_stats: "Stats diverses"
+  members_1: "Liste des membres"
+  members_2: "Ajouter un membre"
+  members_3: "Liste des abonnements"
+  members_4: "Ajouter un abonnement"
+  trainings_1: "Liste des sessions"
+  trainings_2: "Ajouter une session"
+  trainings_3: "Enregistrer les participants"
+  stats_1: "Ma belle stat 1"
+  stats_2: "Ma belle stat 2"
+
+  # formats
   time:
     formats:
       default: "%d.%m.%Y"
@@ -34,13 +63,3 @@ fr:
     day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
     formats:
       default: "%A/%B/%Y %H:%M:%S"
-  tab_home: "Accueil"
-  tab_members: "Membres"
-  tab_sessions: "Sessions"
-  tab_attendance: "Participation"
-  tab_stats: "Stats"
-  text_home: "Plein d'infos ici"
-  text_members: "Les membres de notre club"
-  text_sessions: "Nos séances d'entraînement"
-  text_attendance: "La participation à nos séances d'entraînement"
-  text_stats: "Stats diverses"
