@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /fr|en/ do
     resources :memberships
     resources :users, except: [:show]
-    resources :sessions do
+    resources :trainings do
       resources :attendances, only: [:show, :create]
     end
   end

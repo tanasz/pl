@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823003648) do
+ActiveRecord::Schema.define(version: 20160828222409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20160823003648) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
-    t.integer  "session_id"
-    t.index ["session_id"], name: "index_attendances_on_session_id", using: :btree
+    t.integer  "training_id"
+    t.index ["training_id"], name: "index_attendances_on_training_id", using: :btree
     t.index ["user_id"], name: "index_attendances_on_user_id", using: :btree
   end
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160823003648) do
     t.index ["user_id"], name: "index_memberships_on_user_id", using: :btree
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "trainings", force: :cascade do |t|
     t.datetime "date_time"
     t.time     "duration"
     t.string   "theme"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160823003648) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "attendances", "sessions"
+  add_foreign_key "attendances", "trainings"
   add_foreign_key "attendances", "users"
   add_foreign_key "memberships", "users"
 end

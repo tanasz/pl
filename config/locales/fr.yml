@@ -20,7 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  hello: "Salut !"
+  app_name: "Appli-Lutte de Paris Lutte !"
+  app_meta: "Paris Lutte c'est bon mangez-en !"
+  hello: "Bienvenue"
   time:
     formats:
       default: "%d.%m.%Y"
@@ -32,3 +34,13 @@ fr:
     day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
     formats:
       default: "%A/%B/%Y %H:%M:%S"
+  tab_home: "Accueil"
+  tab_members: "Membres"
+  tab_sessions: "Sessions"
+  tab_attendance: "Participation"
+  tab_stats: "Stats"
+  text_home: "Plein d'infos ici"
+  text_members: "Les membres de notre club"
+  text_sessions: "Nos séances d'entraînement"
+  text_attendance: "La participation à nos séances d'entraînement"
+  text_stats: "Stats diverses"

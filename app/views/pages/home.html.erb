@@ -1,19 +1,87 @@
-<h1>Welcome on Appli-Lutte</h1>
-<p><%= l(Time.now) %><p>
-<p><%= t('hello') %></p>
+<%= @message %>
+<div class="row">
+  <div class="col-md-12">
+    <ol class="breadcrumb breadcrumb-arrow">
+      <li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+      <li><span><%= l Time.now, format: :short %></span></li>
+      <li><span><%= t('hello') %></span></li>
+    </ol> <!-- breadcrumb -->
+  </div> <!-- col -->
+</div> <!-- row -->
 
-<%#------- page bottom social buttons -------%>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">...
-</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="tabbable tabs-left clearfix">
+        <ul id="hometabs" class="nav nav-tabs">
+          <li class="active"><a href="#content1" data-toggle="tab"><%= t('tab_home')%></a></li>
+          <li class=""><a href="#content2" data-toggle="tab"><%= t('tab_members')%></a></li>
+          <li class=""><a href="#content3" data-toggle="tab"><%= t('tab_sessions')%></a></li>
+          <li class=""><a href="#content4" data-toggle="tab"><%= t('tab_attendance')%></a></li>
+          <li class=""><a href="#content5" data-toggle="tab"><%= t('tab_stats')%></a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="content1">
+                <div><%= t('text_home')%></div>
+                <div><%= t('text_home')%></div>
+                <div><%= t('text_home')%></div>
+                <div><%= t('text_home')%></div>
+          </div>
+          <div class="tab-pane fade" id="content2">
+            <p>
+              <%= t('text_members')%>
+
+            </p>
+          </div>
+          <div class="tab-pane fade" id="content3">
+            <p>
+              <%= t('text_sessions')%>
+
+            </p>
+          </div>
+          <div class="tab-pane fade" id="content4">
+            <p>
+              <%= t('text_attendance')%>
+
+            </p>
+          </div>
+          <div class="tab-pane fade" id="content5">
+            <p>
+              <%= t('text_stats')%>
+
+            </p>
+          </div> <!-- tab-pane -->
+        </div> <!-- tab-content -->
+      </div> <!-- tabs -->
+    </div> <!-- panel -->
+  </div> <!-- col -->
+
+  <div class="col-md-6">
+    <div class="thumbnail">
+      <%= image_tag "chachats.jpg" %>
+    </div> <!-- thumbnail -->
+  </div> <!-- col -->
+
+</div> <!-- row -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%#------- yield balise title -------%>
-<% content_for(:title) do %>Appli-Lutte de Paris Lutte !<% end %>
+<% content_for(:title) do %><%=t('app_name')%><% end %>
 
 <%#------- yield meta description -------%>
 <% content_for(:description) do %>
-Paris Lutte c'est bon mangez-en !
+<%=t('app_meta')%>
 <% end %>
