@@ -30,7 +30,8 @@ fr:
 
   # homepage
   welcome: "Bienvenue"
-  authentify: "Merci de vous authentifier"
+  authentify: "Authentifiez-vous"
+  watch_cats: "sinon vous pouvez aussi aller regarder des chats mignons"
   tab_home: "Accueil"
   tab_members: "Membres"
   tab_trainings: "Sessions"
