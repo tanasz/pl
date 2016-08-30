@@ -52,6 +52,9 @@ fr:
   stats_1: "Ma belle stat 1"
   stats_2: "Ma belle stat 2"
 
+  # views
+  h1_users: "Tous les membres"
+
   # formats
   time:
     formats:

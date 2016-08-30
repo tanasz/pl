@@ -1,5 +1,7 @@
 class MembershipsController < ApplicationController
+
   def index
+    @memberships = Membership.all
   end
 
   def create

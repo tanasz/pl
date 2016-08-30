@@ -52,5 +52,7 @@ en:
   stats_1: "My stat 1"
   stats_2: "My stat 2"
 
+  #views
+  h1_users: "Members list"
 
 

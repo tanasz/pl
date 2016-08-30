@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828222409) do
+ActiveRecord::Schema.define(version: 20160830083647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160828222409) do
 
   create_table "memberships", force: :cascade do |t|
     t.string   "period"
-    t.string   "type"
+    t.string   "membership_type"
     t.float    "fee"
     t.boolean  "fee_is_paid"
     t.boolean  "application_ok"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160828222409) do
 
   create_table "trainings", force: :cascade do |t|
     t.datetime "date_time"
-    t.time     "duration"
+    t.string   "duration"
     t.string   "theme"
     t.string   "location"
     t.datetime "created_at", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160828222409) do
     t.string   "emergency_contact_phone"
     t.string   "emergency_contact_relationship"
     t.string   "photo"
+    t.string   "gender"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

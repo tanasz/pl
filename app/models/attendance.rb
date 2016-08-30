@@ -1,6 +1,6 @@
 class Attendance < ApplicationRecord
-  belongs_to :session
+  belongs_to :training
   belongs_to :user
-  validates :session, presence: :true
+  validates :training, presence: :true
   validates :user, presence: :true
 end
