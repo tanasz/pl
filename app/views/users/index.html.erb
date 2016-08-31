@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-xs-12">
-    <a href="#" class="list-group-item active"><%= t('h1_users') %></a>
+  <div class="col-xs-12 list">
+    <div class="list-group-item active"><%= t('h1_users') %></div>
+    <%= paginate @users %>
     <% @users.each do |u| %>
     <a href="#" class="list-group-item">
-      <%= u.id %> -
       <%= u.first_name %> <%= u.last_name %>
       <% status = u.has_membership? ? u.last_membership.status : 'no_membership' %>
       <span class="label pull-right label-<%= status.downcase %>">

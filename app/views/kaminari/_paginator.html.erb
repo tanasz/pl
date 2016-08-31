@@ -7,11 +7,9 @@
     paginator:     the paginator that renders the pagination tags inside
 -%>
 <%= paginator.render do -%>
-<div class="row">
-  <div class="text-center">
+  <div class="list-top">
     <ul class="pagination">
-      <li><%= first_page_tag  %></li>
-      <li><%= prev_page_tag  %></li>
+      <li class='active'><%= prev_page_tag  %></li>
       <% each_page do |page| -%>
         <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
           <li><%= page_tag page %></li>
@@ -19,9 +17,7 @@
           <li><%= gap_tag %></li>
         <% end -%>
       <% end -%>
-      <li><%= next_page_tag  %></li>
-      <li><%= last_page_tag  %></li>
+      <li class='active'><%= next_page_tag  %></li>
     </ul>
   </div>
-</div>
 <% end -%>
