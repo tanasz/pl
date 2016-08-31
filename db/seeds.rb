@@ -42,7 +42,7 @@ memberships = Array.new
   m.application_ok = [true, false].sample
   m.medical_certificate_ok = [true, false].sample
   m.commentary = Faker::Hipster.paragraph(1, true, 1)
-  m.status = ['OK', 'Waiting', 'Revoked']
+  m.status = ['OK', 'Waiting', 'Revoked'].sample
   m.license_number = rand(1000..8000)
   m.club_number = rand(100..1000)
   m.user = users.sample
@@ -58,9 +58,9 @@ i         = 1
   i += 1
   t = Training.new
   t.date_time = debut + i.week
-  t.duration = ['1', '1:30', '2'] # en heures ?
-  t.theme = ['Wrestling', 'Physical prep', 'Yoga', 'Running']
-  t.location = ['Tour des dames','Ailleurs']
+  t.duration = ['1', '1:30', '2'].sample # en heures ?
+  t.theme = ['Wrestling', 'Physical prep', 'Yoga', 'Running'].sample
+  t.location = ['Tour des dames','Ailleurs'].sample
   t.save
   trainings << t
 end

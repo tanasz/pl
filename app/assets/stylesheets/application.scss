@@ -39,3 +39,12 @@ h6,
 .h6 {
   font-size: 0.6em;
 }
+
+.no_membership { @extend.label-info; }
+.label-ok { @extend.label-success; }
+.label-waiting { @extend.label-warning; }
+.label-revoked { @extend.label-danger; }
+
+
+
+

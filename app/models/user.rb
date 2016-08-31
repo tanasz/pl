@@ -1,11 +1,20 @@
 class User < ApplicationRecord
-  has_many :memberships
+  has_many :memberships, -> { order('period DESC') }
   has_many :attendances
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
+
+  def last_membership
+    return 'nothing' unless self.memberships.count > 0
+    self.memberships.order('period desc').first
+  end
+
+  def has_membership?
+    self.memberships.count > 0
+  end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)

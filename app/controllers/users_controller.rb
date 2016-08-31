@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.order(:last_name).page params[:page]
+    #@users = User.all
   end
 
   def create

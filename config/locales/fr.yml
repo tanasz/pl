@@ -55,6 +55,16 @@ fr:
   # views
   h1_users: "Tous les membres"
 
+  # MEMBERSHIPS
+  no_membership: "Aucun"
+  ok: "Valide"
+  waiting: "En attente"
+  revoked: "Expiré"
+
+
+
+
+
   # formats
   time:
     formats:

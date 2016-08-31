@@ -20,6 +20,8 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem 'pundit'
 gem 'awesome_print', :require => 'ap'
+gem 'kaminari'
+
 
 group :development, :test do
   gem 'binding_of_caller'
