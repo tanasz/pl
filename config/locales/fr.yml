@@ -64,7 +64,9 @@ fr:
 
   # users
   sendmail: 'Envoyer un e-mail'
-  member_status: 'Statut de membre'
+  member: 'Membre'
+  member_since: 'Membre depuis'
+  never_member: 'aucun abonnement trouvé'
   # email: 'E-mail'
   # mobile_phone: 'Téléphone portable'
   # gender: 'Genre'

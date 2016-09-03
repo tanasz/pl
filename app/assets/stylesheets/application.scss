@@ -19,9 +19,9 @@ $pinky:                       #FF128B !default;
 $bluey:                       #1F70FB !default;
 $purply:                      #8F57FB !default;
 
-.pink{color:$pinky;border-color:$pinky;}
-.blue{color:$bluey;border-color:$bluey;}
-.purple{color:$purply;border-color:$purply;}
+.male   {color:$pinky;border-color:$pinky;}
+.female {color:$bluey;border-color:$bluey;}
+.heart  {color:$purply;border-color:$purply;}
 
 body { background-color: #f1f2f6}
 h1,

@@ -70,10 +70,11 @@ en:
 
   # users
   sendmail: 'Send an e-mail'
-  member_status: 'Member status'
+  member: 'Member'
+  member_since: 'Member since'
+  never_member: 'no membership found'
   # email: 'E-mail'
   # mobile_phone: 'Mobile phone'
-  gendeur: 'Gender'
   # date_of_birth: 'Date of birth'
   # birthplace_city: 'Place of birth (city)'
   # birthplace_postcode: 'Place of birth (post code)'

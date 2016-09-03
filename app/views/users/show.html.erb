@@ -24,14 +24,14 @@
             <div class="col-sm-12 col-md-6">
               <div class="panel panel-default">
                 <div class="panel-heading inner-accordion">
-                  <h3 class="panel-title"><%= t 'member_status' %>: <%= @user.get_membership_status %></h3>
+                  <h3 class="panel-title"><%= t 'member_since' %> <%= @user.member_since.nil? ? t 'never_member' : @user.member_since %></h3>
                 </div>
                 <div class="panel-body">
-                  <%= render 'shared/icon', { i:'male', c:'pink' } %>
+
+                  <%= render 'shared/icon', { icone:@user.get_icon, classe:@user.get_icon } %>
 
                   <p><strong><%= t 'mobile_phone' %></strong> <%= @user.mobile_phone %></p>
                   <p><strong><%= t 'email' %></strong> <%= @user.email %></p>
-                  <p><strong><%= t 'gender' %></strong> <%= @user.gender %></p>
                   <p><strong><%= t 'date_of_birth' %></strong> <%= @user.date_of_birth %></p>
                   <p><strong><%= t 'birthplace_city' %></strong> <%= @user.birthplace_city %></p>
                   <p><strong><%= t 'birthplace_postcode' %></strong> <%= @user.birthplace_postcode %></p>
