@@ -38,8 +38,6 @@ class User < ApplicationRecord
     return user
   end
 
-  private
-
   def last_membership
     return nil unless self.memberships.count > 0
     self.memberships.order('period desc').first
@@ -50,6 +48,6 @@ class User < ApplicationRecord
     self.memberships.order('period desc').last
   end
 
-
+  private
 
 end

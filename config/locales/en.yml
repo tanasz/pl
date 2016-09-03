@@ -63,6 +63,11 @@ en:
   waiting: 'Waiting'
   revoked: 'Expired'
 
+  # trainings
+
+
+
+
   # users
   sendmail: 'Send an e-mail'
   member_status: 'Member status'
