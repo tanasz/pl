@@ -54,12 +54,30 @@ fr:
 
   # views
   h1_users: "Tous les membres"
+  h1_trainings: "Toutes les sessions"
 
-  # MEMBERSHIPS
+  # memberships
   no_membership: "Aucun"
   ok: "Valide"
   waiting: "En attente"
   revoked: "Expiré"
+
+  # users
+  sendmail: 'Envoyer un e-mail'
+  member_status: 'Statut de membre'
+  # email: 'E-mail'
+  # mobile_phone: 'Téléphone portable'
+  # gender: 'Genre'
+  # date_of_birth: 'Date de naissance'
+  # birthplace_city: 'Lieu de naissance (ville)'
+  # birthplace_postcode: 'Lieu de naissance (code postal)'
+  # birthplace_country: 'Lieu de naissance (pays)'
+  # is_board_member: 'Membre du CA ?'
+  # is_teacher: 'Enseignant ?'
+  # emergency_contact_name: 'En cas d''urgence : nom du contact'
+  # emergency_contact_phone: 'Téléphone du contact'
+  # emergency_contact_relationship: 'Nature de votre lien'
+  # photo: 'Photo'
 
 
 
@@ -68,12 +86,14 @@ fr:
   # formats
   time:
     formats:
-      default: "%d.%m.%Y"
-      short: "%b %d"
-      long: "%B %d, %Y"
+      default: "%d/%m/%Y"
+      short: "%d/%m"
+      long: "%d %B, %Y"
   date:
     month_names:
       [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names:
+      [~, Jan, Fév, Mar, Avr, Mai, Juin, Jul, Août, Sep, Oct, Nov, Déc]
     day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
     formats:
       default: "%A/%B/%Y %H:%M:%S"

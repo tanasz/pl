@@ -1,2 +1,28 @@
-<h1>Trainings#index</h1>
-<p>Find me in app/views/trainings/index.html.erb</p>
+<div class="row list list-group">
+
+    <div class="list-group-item active"><%= t 'h1_trainings' %></div>
+
+    <%= paginate @trainings %>
+
+    <% @trainings.each do |t| %>
+      <%= link_to t, class:'list-group-item clearfix' do %>
+      <div class='col-xs-4 col-sm-3'>
+        <%= t.date_time.to_date %>
+      </div>
+      <div class='col-xs-3 col-sm-2'>
+        <%= t.date_time.to_formatted_s(:time) %>
+      </div>
+      <div class='col-xs-5 col-sm-4'>
+        <%= t t.theme %>
+      </div>
+      <div class='hidden-xs col-sm-3'>
+        <%= t.location %>
+      </div>
+
+      <% end %>
+    <% end %>
+
+    <%= paginate @trainings %>
+
+</div>
+

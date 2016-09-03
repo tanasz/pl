@@ -1,7 +1,8 @@
 class TrainingsController < ApplicationController
 
+
   def index
-    @trainings = Training.all
+    @trainings = Training.active.order(:date_time).page params[:page]
   end
 
   def create

@@ -14,6 +14,15 @@
 @import "pages/index";
 @import "vendor/index";
 
+// my colors
+$pinky:                       #FF128B !default;
+$bluey:                       #1F70FB !default;
+$purply:                      #8F57FB !default;
+
+.pink{color:$pinky;border-color:$pinky;}
+.blue{color:$bluey;border-color:$bluey;}
+.purple{color:$purply;border-color:$purply;}
+
 body { background-color: #f1f2f6}
 h1,
 .h1 { font-size: 2em; }
@@ -32,13 +41,11 @@ h6,
 .label-ok { @extend.label-success; }
 .label-waiting { @extend.label-warning; }
 .label-revoked { @extend.label-danger; }
-
 .list{
   .list-group-item{
     border-color: #CCD1D9;
   }
 }
-
 .list-top{
   padding-bottom: 0;
 }
@@ -64,8 +71,8 @@ a.list-group-item:hover,
 a.list-group-item:focus {
   background-color:#f6fbff;
 }
-
-
+.inner-accordion{ padding:15px !important; }
+.footer-logo > .navbar-wagon-brand img { width:150px; }
 
 
 

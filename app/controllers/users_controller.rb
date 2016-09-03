@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order(:last_name).page params[:page]
-    #@users = User.all
   end
 
   def create
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def update

@@ -1,2 +1,228 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render 'shared/header_show' %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel-group panel-group-lists" id="accordion2">
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+              <strong><%= @user.first_name %> <%= @user.last_name %></strong>
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="col-sm-12 col-md-6">
+              <div class="thumbnail">
+                <%= image_tag "https://placeholdit.imgix.net/~text?txtsize=20&txt=320%C3%97240&w=320&h=240", class:'img-rounded' %>
+                <div class="caption text-center">
+                  <p><a href="#" class="btn btn-warning" role="button"><%= t 'sendmail' %></a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading inner-accordion">
+                  <h3 class="panel-title"><%= t 'member_status' %>: <%= @user.get_membership_status %></h3>
+                </div>
+                <div class="panel-body">
+                  <%= render 'shared/icon', { i:'male', c:'pink' } %>
+
+                  <p><strong><%= t 'mobile_phone' %></strong> <%= @user.mobile_phone %></p>
+                  <p><strong><%= t 'email' %></strong> <%= @user.email %></p>
+                  <p><strong><%= t 'gender' %></strong> <%= @user.gender %></p>
+                  <p><strong><%= t 'date_of_birth' %></strong> <%= @user.date_of_birth %></p>
+                  <p><strong><%= t 'birthplace_city' %></strong> <%= @user.birthplace_city %></p>
+                  <p><strong><%= t 'birthplace_postcode' %></strong> <%= @user.birthplace_postcode %></p>
+                  <p><strong><%= t 'birthplace_country' %></strong> <%= @user.birthplace_country %></p>
+                  <p><strong><%= t 'is_board_member' %></strong> <%= @user.is_board_member %></p>
+                  <p><strong><%= t 'is_teacher' %></strong> <%= @user.is_teacher %></p>
+                  <p><strong><%= t 'mobile_phone' %></strong> <%= @user.mobile_phone %></p>
+                  <p><strong><%= t 'emergency_contact_name' %></strong> <%= @user.emergency_contact_name %></p>
+                  <p><strong><%= t 'emergency_contact_phone' %></strong> <%= @user.emergency_contact_phone %></p>
+                  <p><strong><%= t 'emergency_contact_relationship' %></strong> <%= @user.emergency_contact_relationship %></p>
+                  <p><strong><%= t 'photo' %></strong> <%= @user.photo %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+              Ligne pliable suivante
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            Contenu de la ligne pliable.
+          </div>
+        </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                Ligne pliable suivante
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              Contenu de la ligne pliable.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin pour le moment -->
+
+
+
+<div class="example">
+  <h2 class="example-title">Panels</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Panel zzzzzheading</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Panel heading</div>
+        <div class="panel-body">
+          <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+is_board_member
+is_teacher
+
+date_of_birth
+birthplace_city
+birthplace_postcode
+birthplace_country
+
+emergency_contact_name
+emergency_contact_phone
+emergency_contact_relationship
+
+
+
+encrypted_password
+reset_password_sent_at
+remember_created_at
+sign_in_count
+current_sign_in_at
+last_sign_in_at
+current_sign_in_ip
+last_sign_in_ip
+created_at
+updated_at
+provider
+uid
+facebook_picture_url

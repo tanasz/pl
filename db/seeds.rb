@@ -52,12 +52,12 @@ end
 puts "- #{memberships.count} memberships seeded!"
 
 trainings = Array.new
-debut     = Faker::Date.between(1200.days.ago, 1250.days.ago)
+debut     = '02 Sep 2013 18:00:00'.to_datetime
 i         = 1
 500.times do
-  i += 1
+  i += 3
   t = Training.new
-  t.date_time = debut + i.week
+  t.date_time = debut + i.days
   t.duration = ['1', '1:30', '2'].sample # en heures ?
   t.theme = ['Wrestling', 'Physical prep', 'Yoga', 'Running'].sample
   t.location = ['Tour des dames','Ailleurs'].sample

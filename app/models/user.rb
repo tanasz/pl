@@ -1,15 +1,18 @@
 class User < ApplicationRecord
   has_many :memberships, -> { order('period DESC') }
-  has_many :attendances
+  has_many :attendances, -> { order('created_at DESC') }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  def last_membership
-    return 'nothing' unless self.memberships.count > 0
-    self.memberships.order('period desc').first
+  def get_membership_status
+    # get 1st mmb info
+    first_membership = self.first_membership
+    last_membership = self.last_membership
+    # get last mmb info
+    # get current mmb info
   end
 
   def has_membership?
@@ -32,8 +35,21 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
-
     return user
   end
+
+  private
+
+  def last_membership
+    return nil unless self.memberships.count > 0
+    self.memberships.order('period desc').first
+  end
+
+  def first_membership
+    return nil unless self.memberships.count > 0
+    self.memberships.order('period desc').last
+  end
+
+
 
 end

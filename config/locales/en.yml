@@ -21,43 +21,85 @@
 
 en:
   # global
-  app_name: "Paris Lutte app!"
-  app_meta: "Be cute with Paris Lutte"
+  app_name: 'Paris Lutte app!'
+  app_meta: 'Be cute with Paris Lutte'
 
   # navbar
-  profile: "Profile"
-  sign_out: "Log out"
+  profile: 'Profile'
+  sign_out: 'Log out'
 
   # homepage
-  welcome: "Welcome"
-  authentify: "Please log in"
-  watch_cats: "or go watch pictures of cute kitties"
-  tab_home: "Home"
-  tab_members: "Members"
-  tab_trainings: "Sessions"
-  tab_attendances: "Attendance"
-  tab_stats: "Stats"
-  text_home: "You will find plenty of info here"
-  text_members: "All about our club members"
-  text_trainings: "All our training sessions"
-  text_attendance: "All about the attendance to our training sessions"
-  text_stats: "Various stats"
-  members_1: "List members"
-  members_2: "Add a member"
-  members_3: "List memberships"
-  members_4: "Add a membership"
-  trainings_1: "List sessions"
-  trainings_2: "Add a session"
-  trainings_3: "Log participations"
-  stats_1: "My stat 1"
-  stats_2: "My stat 2"
+  welcome: 'Welcome'
+  authentify: 'Please log in'
+  watch_cats: 'or go watch pictures of cute kitties'
+  tab_home: 'Home'
+  tab_members: 'Members'
+  tab_trainings: 'Sessions'
+  tab_attendances: 'Attendance'
+  tab_stats: 'Stats'
+  text_home: 'You will find plenty of info here'
+  text_members: 'All about our club members'
+  text_trainings: 'All our training sessions'
+  text_attendance: 'All about the attendance to our training sessions'
+  text_stats: 'Various stats'
+  members_1: 'List members'
+  members_2: 'Add a member'
+  members_3: 'List memberships'
+  members_4: 'Add a membership'
+  trainings_1: 'List sessions'
+  trainings_2: 'Add a session'
+  trainings_3: 'Log participations'
+  stats_1: 'My stat 1'
+  stats_2: 'My stat 2'
 
   # views
-  h1_users: "Members list"
+  h1_users: 'Members list'
+  h1_trainings: 'Training sessions list'
+  h1_user_show: 'Member view'
 
-  # MEMBERSHIPS
-  no_membership: "None"
-  ok: "Valid"
-  waiting: "Waiting"
-  revoked: "Expired"
+  # memberships
+  no_membership: 'None'
+  ok: 'Valid'
+  waiting: 'Waiting'
+  revoked: 'Expired'
+
+  # users
+  sendmail: 'Send an e-mail'
+  member_status: 'Member status'
+  # email: 'E-mail'
+  # mobile_phone: 'Mobile phone'
+  gendeur: 'Gender'
+  # date_of_birth: 'Date of birth'
+  # birthplace_city: 'Place of birth (city)'
+  # birthplace_postcode: 'Place of birth (post code)'
+  # birthplace_country: 'Place of birth (country)'
+  # is_board_member: 'Member of the board?'
+  # is_teacher: 'Teacher?'
+  # emergency_contact_name: 'In case of emergency: contact name'
+  # emergency_contact_phone: 'Phone number of the contact'
+  # emergency_contact_relationship: 'Relationship'
+  # photo: 'Photograph'
+
+
+
+
+  time:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default:   "%Y-%m-%d"
+      short:     "%d %b"
+      long:      "%B %d, %Y"
+      onlyday:  "%d %b"
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - year
+      - month
+      - day
 
