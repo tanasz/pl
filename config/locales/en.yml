@@ -66,24 +66,28 @@ en:
   # trainings
 
 
-
-
   # users
+  user_details: 'User details'
+  contact_panel_title: 'Contact details'
   sendmail: 'Send an e-mail'
   member: 'Member'
-  member_since: 'Member since'
+  member_since: 'member since:'
   never_member: 'no membership found'
-  # email: 'E-mail'
-  # mobile_phone: 'Mobile phone'
-  # date_of_birth: 'Date of birth'
-  # birthplace_city: 'Place of birth (city)'
-  # birthplace_postcode: 'Place of birth (post code)'
-  # birthplace_country: 'Place of birth (country)'
-  # is_board_member: 'Member of the board?'
-  # is_teacher: 'Teacher?'
-  # emergency_contact_name: 'In case of emergency: contact name'
-  # emergency_contact_phone: 'Phone number of the contact'
-  # emergency_contact_relationship: 'Relationship'
+  emergency_contact: 'Emergency contact'
+  emergency_contact_name: 'Contact name:'
+  emergency_contact_phone: 'Contact phone number:'
+  emergency_contact_relationship: 'Relationship with member:'
+  email: 'E-mail'
+  mobile_phone: 'Mobile phone'
+  date_of_birth: 'Date of birth'
+  birthplace_city: 'Place of birth (city)'
+  birthplace_postcode: 'Place of birth (post code)'
+  birthplace_country: 'Place of birth (country)'
+  address: 'Address'
+  postcode: 'Postcode'
+  city: 'City'
+  country: 'Country'
+
   # photo: 'Photograph'
 
 

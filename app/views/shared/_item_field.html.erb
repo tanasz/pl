@@ -1,0 +1,8 @@
+<% if icone.length > 0 %>
+  <div class='input-group inner-accordion'>
+    <span class='input-group-addon'><%= render 'shared/icon_small', { icone: icone, classe:'toto' } %></span>
+<% else %>
+  <div class='inner-accordion'>
+<% end %>
+    <input type='text' class='form-control' disabled placeholder='<%= field_value %>'>
+  </div>

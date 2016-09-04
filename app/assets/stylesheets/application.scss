@@ -62,7 +62,7 @@ h6,
       background-color: #f6fbff;
       font-weight: bold;
       color: $blue;
-    a{
+    a {
       color: white;
     }
   }
@@ -71,7 +71,11 @@ a.list-group-item:hover,
 a.list-group-item:focus {
   background-color:#f6fbff;
 }
-.inner-accordion{ padding:15px !important; }
+.inner-accordion { margin-bottom:5px !important; }
+.panel-heading.inner-accordion{ padding:15px; }
+//.panel.inner-accordion{ margin-bottom: 10px; }
+
+
 .footer-logo > .navbar-wagon-brand img { width:150px; }
 
 

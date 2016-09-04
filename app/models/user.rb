@@ -7,16 +7,28 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
   def member_since
     self.first_membership.nil? ? nil : self.first_membership.period
   end
 
-  def has_membership?
+  def get_gender_icon
+    (['male', 'female'].include?self.gender) ? self.gender : 'heart'
+  end
+
+  def get_user_type_icon
+    self.is_board_member == true ? 'users' : 'user'
+  end
+
+ def has_membership?
     self.memberships.count > 0
   end
 
-  def get_icon
-    (['male', 'female'].include?self.gender) ? self.gender : 'heart'
+  def teacher?
+    self.is_teacher == true
   end
 
   def self.find_for_facebook_oauth(auth)

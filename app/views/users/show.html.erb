@@ -1,78 +1,77 @@
-<%= render 'shared/header_show' %>
+<%= render 'shared/header_show', {user_full_name: @user.full_name} %>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel-group panel-group-lists" id="accordion2">
-      <div class="panel">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-              <strong><%= @user.first_name %> <%= @user.last_name %></strong>
+<div class='row'>
+  <div class='col-md-12'>
+    <div class='panel-group panel-group-lists' id='accordion2'>
+      <div class='panel'>
+        <div class='panel-heading'>
+          <h4 class='panel-title'>
+            <a data-toggle='collapse' data-parent='#accordion2' href='#collapseOne'>
+              <strong><%= t 'user_details' %></strong>
             </a>
           </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <div class="col-sm-12 col-md-6">
-              <div class="thumbnail">
-                <%= image_tag "https://placeholdit.imgix.net/~text?txtsize=20&txt=320%C3%97240&w=320&h=240", class:'img-rounded' %>
-                <div class="caption text-center">
-                  <p><a href="#" class="btn btn-warning" role="button"><%= t 'sendmail' %></a></p>
+        <div id='collapseOne' class='panel-collapse collapse in'>
+          <div class='panel-body'>
+            <div class='col-sm-12 col-md-6'>
+              <div class='thumbnail'>
+                <%= image_tag 'placeholder.png', class:'img-rounded'  %>
+                <div class='caption text-center'>
+                  <p><a href='#' class='btn btn-warning' role='button'><%= t 'sendmail' %></a></p>
                 </div>
               </div>
             </div>
-            <div class="col-sm-12 col-md-6">
-              <div class="panel panel-default">
-                <div class="panel-heading inner-accordion">
-                  <h3 class="panel-title"><%= t 'member_since' %> <%= t @user.member_since.nil? ? 'never_member' : @user.member_since %></h3>
+            <div class='col-sm-12 col-md-6'>
+              <div class='panel panel-default inner-accordion'>
+                <div class='panel-heading inner-accordion'>
+                  <h3 class='panel-title'><%=  'member_since' %> <%= @user.member_since.nil? ? 'never_member' : @user.member_since %></h3>
                 </div>
-                <div class="panel-body">
-
-                  <%= render 'shared/icon', { icone:@user.get_icon, classe:@user.get_icon } %>
-
-                  <p><strong><%= t 'mobile_phone' %></strong> <%= @user.mobile_phone %></p>
-                  <p><strong><%= t 'email' %></strong> <%= @user.email %></p>
-                  <p><strong><%= t 'date_of_birth' %></strong> <%= @user.date_of_birth %></p>
-                  <p><strong><%= t 'birthplace_city' %></strong> <%= @user.birthplace_city %></p>
-                  <p><strong><%= t 'birthplace_postcode' %></strong> <%= @user.birthplace_postcode %></p>
-                  <p><strong><%= t 'birthplace_country' %></strong> <%= @user.birthplace_country %></p>
-                  <p><strong><%= t 'is_board_member' %></strong> <%= @user.is_board_member %></p>
-                  <p><strong><%= t 'is_teacher' %></strong> <%= @user.is_teacher %></p>
-                  <p><strong><%= t 'mobile_phone' %></strong> <%= @user.mobile_phone %></p>
-                  <p><strong><%= t 'emergency_contact_name' %></strong> <%= @user.emergency_contact_name %></p>
-                  <p><strong><%= t 'emergency_contact_phone' %></strong> <%= @user.emergency_contact_phone %></p>
-                  <p><strong><%= t 'emergency_contact_relationship' %></strong> <%= @user.emergency_contact_relationship %></p>
-                  <p><strong><%= t 'photo' %></strong> <%= @user.photo %></p>
+                <div class='panel-body membership'>
+                  <!-- icons -->
+                  <% member_class = gender_icon = @user.get_gender_icon %>
+                  <%= render 'shared/icon_pull', { icone: gender_icon, classe:member_class } %>
+                  <%= render 'shared/icon_pull', { icone: @user.get_user_type_icon, classe:member_class } %>
+                  <%= render 'shared/icon_pull', { icone: 'mortar-board', classe:member_class } if @user.teacher? %>
                 </div>
               </div>
+              <%= render 'shared/item_field', { icone:'phone', field_name:'mobile_phone', field_value:@user.mobile_phone } %>
+              <%= render 'shared/item_field', { icone:'home', field_name:'address', field_value:@user.address } %>
+              <%= render 'shared/item_field', { icone:'', field_name:'postcode', field_value:@user.postcode } %>
+              <%= render 'shared/item_field', { icone:'', field_name:'city', field_value:@user.city } %>
+              <%= render 'shared/item_field', { icone:'', field_name:'country', field_value:@user.country } %>
+
+
+
+
             </div>
           </div>
         </div>
       </div>
-      <div class="panel">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-              Ligne pliable suivante
+      <div class='panel'>
+        <div class='panel-heading'>
+          <h4 class='panel-title'>
+            <a data-toggle='collapse' data-parent='#accordion2' href='#collapseTwo'><%= t 'emergency_contact' %>
             </a>
           </h4>
         </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-          <div class="panel-body">
-            Contenu de la ligne pliable.
+        <div id='collapseTwo' class='panel-collapse collapse'>
+          <div class='panel-body'>
+            <p><strong><%= t 'emergency_contact_name' %></strong> <%= @user.emergency_contact_name %></p>
+            <p><strong><%= t 'emergency_contact_phone' %></strong> <%= @user.emergency_contact_phone %></p>
+            <p><strong><%= t 'emergency_contact_relationship' %></strong> <%= @user.emergency_contact_relationship %></p>
           </div>
         </div>
         </div>
-        <div class="panel">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        <div class='panel'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='#accordion2' href='#collapseThree'>
                 Ligne pliable suivante
               </a>
             </h4>
           </div>
-          <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
+          <div id='collapseThree' class='panel-collapse collapse'>
+            <div class='panel-body'>
               Contenu de la ligne pliable.
             </div>
           </div>
@@ -83,7 +82,7 @@
 </div>
 <!-- fin pour le moment -->
 
-
+<!--
 
 <div class="example">
   <h2 class="example-title">Panels</h2>
@@ -226,3 +225,4 @@ updated_at
 provider
 uid
 facebook_picture_url
+ -->
