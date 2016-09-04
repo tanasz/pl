@@ -27,6 +27,10 @@ users = Array.new
   u.emergency_contact_phone = Faker::PhoneNumber.phone_number
   u.emergency_contact_relationship = ['father','mother','friend','husband','wife','daughter'].sample
   u.photo = Faker::Placeholdit.image("120x150", 'jpg', 'ffffff', '000', u.first_name)
+  u.address = Faker::Address.street_address
+  u.postcode = Faker::Address.postcode
+  u.city = Faker::GameOfThrones.city
+  u.country = Faker::Address.country
   u.save
   users << u
 end
