@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <style>
+      video#bgvid {
+          transition: 1s opacity;
+      }
+      .stopfade { opacity: .5; }
+      video { display: block; }
+      video#bgvid {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          z-index: -100;
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          background: url(polina.jpg) no-repeat;
+          background-size: cover;
+
+          @media screen and (max-device-width: 800px) {
+              html {
+                   background: url(miaou.png) #000 no-repeat center center fixed;
+              }
+              #bgvid {
+                  display: none;
+              }
+          }
+      }
+    </style>
+      <!--[if lt IE 9]>
+      <script>
+        document.createElement('video');
+      </script>
+      <![endif]-->
+
+  </head>
+  <body>
+    <button id="vidpause">Pause</button>
+
+    <video playsinline autoplay muted loop poster="../../assets/images/miaou.png" id="bgvid">
+        <source src="../../assets/images/miaou.webm" type="video/webm">
+        <source src="../../assets/images/miaou.mp4" type="video/mp4">
+    </video>
+    <script type="text/javascript">
+      var vid = document.getElementById("bgvid"),
+      pauseButton = document.getElementById("vidpause");
+      function vidFade() {
+          vid.classList.add("stopfade");
+      }
+      vid.addEventListener('ended', function() {
+          // only functional if "loop" is removed
+           vid.pause();
+        // to capture IE10
+        vidFade();
+      });
+      pauseButton.addEventListener("click", function() {
+          vid.classList.toggle("stopfade");
+        if (vid.paused) {
+      vid.play();
+          pauseButton.innerHTML = "Pause";
+        } else {
+              vid.pause();
+              pauseButton.innerHTML = "Paused";
+        }
+      })
+    </script>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+

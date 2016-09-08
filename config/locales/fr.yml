@@ -33,16 +33,16 @@ fr:
   authentify: "Authentifiez-vous"
   watch_cats: "sinon vous pouvez aussi aller regarder des chats mignons"
   tab_home: "Accueil"
-  tab_members: "Membres"
+  tab_members: "Adhérents"
   tab_trainings: "Sessions"
   tab_attendances: "Participation"
   tab_stats: "Stats"
   text_home: "Plein d'infos ici"
-  text_members: "Les membres de notre club"
+  text_members: "Les adhérents de notre club"
   text_sessions: "Nos séances d'entraînement"
   text_attendance: "La participation à nos séances d'entraînement"
   text_stats: "Stats diverses"
-  members_1: "Liste des membres"
+  members_1: "Liste des adhérents"
   members_2: "Ajouter un membre"
   members_3: "Liste des abonnements"
   members_4: "Ajouter un abonnement"
@@ -53,8 +53,9 @@ fr:
   stats_2: "Ma belle stat 2"
 
   # views
-  h1_users: "Tous les membres"
+  h1_users: "Tous les adhérents"
   h1_trainings: "Toutes les sessions"
+  h1_user_show: 'Infos adhérent'
 
   # memberships
   no_membership: "Aucun"
@@ -63,28 +64,29 @@ fr:
   revoked: "Expiré"
 
   # users
-  user_details: 'Coordonnées membre'
+  user_details: 'Coordonnées adhérent'
   contact_panel_title: 'Coordonnées'
   sendmail: 'Envoyer un e-mail'
-  member: 'Membre'
-  member_since: 'membre depuis :'
+  member: 'Adhérent'
+  first_membership: 'Première adhésion : '
   never_member: 'aucun abonnement trouvé'
+  current_membership_status: 'Statut de l''adhésion :'
   emergency_contact: 'Personne à contacter en cas d''urgence :'
   emergency_contact_name: 'Nom du contact :'
   emergency_contact_phone: 'Numéro de téléphone :'
   emergency_contact_relationship: 'Nature du lien avec le membre :'
-  #
-  # email: 'E-mail'
-  # mobile_phone: 'Téléphone portable'
-  # gender: 'Genre'
-  # date_of_birth: 'Date de naissance'
-  # birthplace_city: 'Lieu de naissance (ville)'
-  # birthplace_postcode: 'Lieu de naissance (code postal)'
-  # birthplace_country: 'Lieu de naissance (pays)'
-  # is_board_member: 'Membre du CA ?'
-  # is_teacher: 'Enseignant ?'
-  # photo: 'Photo'
-
+  email: 'E-mail'
+  mobile_phone: 'Téléphone portable'
+  gender: 'Genre'
+  date_of_birth: 'Date de naissance'
+  birthplace_city: 'Lieu de naissance (ville)'
+  birthplace_postcode: 'Lieu de naissance (code postal)'
+  birthplace_country: 'Lieu de naissance (pays)'
+  address: 'Adresse'
+  postcode: 'Code postal'
+  city: 'Ville'
+  country: 'Pays'
+  all_trainings_for: 'Tous les entraînements de '
 
 
   # formats

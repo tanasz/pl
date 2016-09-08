@@ -5,9 +5,9 @@
     <% @users.each do |u| %>
       <%= link_to u, class:'list-group-item' do %>
         <%= u.first_name %> <%= u.last_name %>
-        <% status = u.has_membership? ? u.last_membership.status : 'no_membership' %>
+        <% status = u.current_membership.nil? ? 'no_membership' : u.current_membership.status %>
         <span class="label pull-right label-<%= status.downcase %>">
-          <%= t(status) %>
+          <%= t status %>
         </span>
       <% end %>
     <% end %>

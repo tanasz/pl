@@ -1,33 +1,49 @@
 <%= render 'shared/header_show', {user_full_name: @user.full_name} %>
-
+<!-- after the header -->
 <div class='row'>
   <div class='col-md-12'>
-    <div class='panel-group panel-group-lists' id='accordion2'>
+    <div class='panel-group panel-group-lists' id='accordion'>
+      <!-- 1st collapsible panel : -->
       <div class='panel'>
         <div class='panel-heading'>
           <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='#accordion2' href='#collapseOne'>
+            <a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>
               <strong><%= t 'user_details' %></strong>
             </a>
           </h4>
         </div>
         <div id='collapseOne' class='panel-collapse collapse in'>
           <div class='panel-body'>
-            <div class='col-sm-12 col-md-6'>
+            <div class='col-sm-12 col-md-4'>
               <div class='thumbnail'>
-                <%= image_tag 'placeholder.png', class:'img-rounded'  %>
+                <% if @user.photo.nil? then %>
+                  <% first_name = @user.first_name.nil? ? '' : @user.first_name %>
+                  <%= image_tag 'profile' + rand(1..6).to_s + '.png', size: "100x100", alt: first_name %>
+                <% else %>
+                  <%= image_tag @user.photo, size: "100x100", alt: @user.first_name %>
+                <% end %>
                 <div class='caption text-center'>
                   <p><a href='#' class='btn btn-warning' role='button'><%= t 'sendmail' %></a></p>
                 </div>
               </div>
             </div>
-            <div class='col-sm-12 col-md-6'>
-              <div class='panel panel-default inner-accordion'>
+            <% current_membership = @user.current_membership %>
+            <% first_membership = @user.first_membership %>
+            <div class='col-sm-12 col-md-8'>
+              <div class='panel inner-accordion status panel-<%= current_membership.nil? ? 'default' : current_membership.status.downcase %>'>
                 <div class='panel-heading inner-accordion'>
-                  <h3 class='panel-title'><%=  'member_since' %> <%= @user.member_since.nil? ? 'never_member' : @user.member_since %></h3>
+                  <h3 class='panel-title'>
+                    <span class='status'>
+                      <%= t 'current_membership_status' %>
+                      <%= t current_membership.nil? ? 'no_current_membership' : current_membership.status %>
+                    </span>
+                    <span class='first pull-right'>
+                      (<%= t 'first_membership' %>
+                      <%= t first_membership.nil? ? 'never_member' : first_membership.period %>)
+                    </span>
+                  </h3>
                 </div>
                 <div class='panel-body membership'>
-                  <!-- icons -->
                   <% member_class = gender_icon = @user.get_gender_icon %>
                   <%= render 'shared/icon_pull', { icone: gender_icon, classe:member_class } %>
                   <%= render 'shared/icon_pull', { icone: @user.get_user_type_icon, classe:member_class } %>
@@ -39,18 +55,16 @@
               <%= render 'shared/item_field', { icone:'', field_name:'postcode', field_value:@user.postcode } %>
               <%= render 'shared/item_field', { icone:'', field_name:'city', field_value:@user.city } %>
               <%= render 'shared/item_field', { icone:'', field_name:'country', field_value:@user.country } %>
-
-
-
-
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- /panel -->
+      <!-- 2nd collapsible panel : -->
       <div class='panel'>
         <div class='panel-heading'>
           <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='#accordion2' href='#collapseTwo'><%= t 'emergency_contact' %>
+            <a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>
+              <%= t 'emergency_contact' %>
             </a>
           </h4>
         </div>
@@ -61,22 +75,61 @@
             <p><strong><%= t 'emergency_contact_relationship' %></strong> <%= @user.emergency_contact_relationship %></p>
           </div>
         </div>
+      </div><!-- /panel -->
+      <!-- 3rd collapsible panel : -->
+      <div class='panel'>
+        <div class='panel-heading'>
+          <h4 class='panel-title'>
+            <a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
+              'Memberships'
+            </a>
+          </h4>
         </div>
-        <div class='panel'>
-          <div class='panel-heading'>
-            <h4 class='panel-title'>
-              <a data-toggle='collapse' data-parent='#accordion2' href='#collapseThree'>
-                Ligne pliable suivante
-              </a>
-            </h4>
-          </div>
-          <div id='collapseThree' class='panel-collapse collapse'>
-            <div class='panel-body'>
-              Contenu de la ligne pliable.
+        <div id='collapseThree' class='panel-collapse collapse'>
+          <div class='panel-body'>
+            <div class='col-sm-12 inner-list'>
+              <div class="inner-list-group-item "><%= 'titre de liste' %></div>
+                <% @memberships.each do |m| %>
+                  <div class="inner-list-group-item"><%= m.period %></div>
+                <% end %>
             </div>
           </div>
         </div>
-      </div>
+      </div> <!-- /panel -->
+      <!-- 4th collapsible panel : -->
+      <div class='panel'>
+        <div class='panel-heading'>
+          <h4 class='panel-title'>
+            <a data-toggle='collapse' data-parent='#accordion' href='#collapseFour'>
+              'Attendances'
+            </a>
+          </h4>
+        </div>
+        <div id='collapseFour' class='panel-collapse collapse'>
+          <div class='panel-body'>
+            <div class='row inner-list list'>
+              <div class="list-group-item clearfix"><%= t 'all_trainings_for' %></div>
+                <% @attendances.each do |a| %>
+                  <% incident = a.incident? %>
+                  <%= link_to training_path,
+                    class:"clearfix list-group-item list-group-item" + (incident ? '-danger' : ''),
+                    action: 'show', id:a.training_id do %>
+                  <div class='col-xs-4 col-sm-3'>
+                    <%= a.training.theme %>
+                  </div>
+                  <div class='col-xs-4 col-sm-3'>
+                    <%= a.training.date_time.to_date %>
+                  </div>
+                  <% incident %>
+                  <div class='col-xs-4 col-sm-3'>
+                    <%= a.incident_type %>
+                  </div>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /panel -->
     </div>
   </div>
 </div>

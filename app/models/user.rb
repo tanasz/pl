@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :memberships, -> { order('period DESC') }
-  has_many :attendances, -> { order('created_at DESC') }
+  has_many :attendances, -> { order('training_id DESC') }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,10 +11,6 @@ class User < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
-  def member_since
-    self.first_membership.nil? ? nil : self.first_membership.period
-  end
-
   def get_gender_icon
     (['male', 'female'].include?self.gender) ? self.gender : 'heart'
   end
@@ -23,8 +19,25 @@ class User < ApplicationRecord
     self.is_board_member == true ? 'users' : 'user'
   end
 
- def has_membership?
+  def get_memberships
+    self.memberships.order(period: :desc)
+  end
+
+  def first_membership
+    self.first_membership.nil? ? nil : self.first_membership.period
+  end
+
+  def current_membership
+    current_period = (Date.today.year - ( Date.today.month < 9 ? 0 : 1)).to_s
+    self.memberships.find_by(period:current_period)
+  end
+
+  def has_membership?
     self.memberships.count > 0
+  end
+
+  def get_attendances
+    self.attendances.order(training_id: :desc)
   end
 
   def teacher?

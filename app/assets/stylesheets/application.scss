@@ -37,10 +37,21 @@ h5,
 h6,
 .h6 { font-size: 0.6em; }
 
-.no_membership { @extend.label-info; }
+.inner-list { padding-left:10px; padding-right:10px; }
+
+
+.label-no_membership { @extend.label-default; }
 .label-ok { @extend.label-success; }
 .label-waiting { @extend.label-warning; }
 .label-revoked { @extend.label-danger; }
+
+.panel-no_membership { @extend.panel-default; }
+.panel-ok { @extend.panel-success; }
+.panel-waiting { @extend.panel-warning; }
+.panel-revoked { @extend.panel-danger; }
+
+
+
 .list{
   .list-group-item{
     border-color: #CCD1D9;
@@ -75,6 +86,8 @@ a.list-group-item:focus {
 .panel-heading.inner-accordion{ padding:15px; }
 //.panel.inner-accordion{ margin-bottom: 10px; }
 
+.status span.status { font-weight: bold; }
+.status span.first { font-style: italic; }
 
 .footer-logo > .navbar-wagon-brand img { width:150px; }
 

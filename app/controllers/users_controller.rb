@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @memberships = @user.get_memberships
+    @attendances = @user.get_attendances
   end
 
   def update
@@ -22,4 +24,5 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
 end

@@ -63,22 +63,22 @@ en:
   waiting: 'Waiting'
   revoked: 'Expired'
 
-  # trainings
-
 
   # users
   user_details: 'User details'
   contact_panel_title: 'Contact details'
   sendmail: 'Send an e-mail'
   member: 'Member'
-  member_since: 'member since:'
+  first_membership: 'First membership: '
   never_member: 'no membership found'
+  current_membership_status: 'Membership status:'
   emergency_contact: 'Emergency contact'
   emergency_contact_name: 'Contact name:'
   emergency_contact_phone: 'Contact phone number:'
   emergency_contact_relationship: 'Relationship with member:'
   email: 'E-mail'
   mobile_phone: 'Mobile phone'
+  gender: 'Genre'
   date_of_birth: 'Date of birth'
   birthplace_city: 'Place of birth (city)'
   birthplace_postcode: 'Place of birth (post code)'
@@ -87,8 +87,7 @@ en:
   postcode: 'Postcode'
   city: 'City'
   country: 'Country'
-
-  # photo: 'Photograph'
+  all_trainings_for: 'All trainings for '
 
 
 
