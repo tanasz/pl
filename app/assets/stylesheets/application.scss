@@ -19,11 +19,14 @@ $pinky:                       #FF128B !default;
 $bluey:                       #1F70FB !default;
 $purply:                      #8F57FB !default;
 
+$grisclair:                   #f1f2f6;
+$bleutay:                     #f6fbff;
+
 .male   {color:$pinky;border-color:$pinky;}
 .female {color:$bluey;border-color:$bluey;}
 .heart  {color:$purply;border-color:$purply;}
 
-body { background-color: #f1f2f6}
+body { background-color: $grisclair}
 h1,
 .h1 { font-size: 2em; }
 h2,
@@ -37,8 +40,8 @@ h5,
 h6,
 .h6 { font-size: 0.6em; }
 
-.inner-list { padding-left:10px; padding-right:10px; }
-
+.inner-list { padding-left:10px; padding-right:10px; font-size:0.9em;}
+.inner-list .head{ background-color: $grisclair;}
 
 .label-no_membership { @extend.label-default; }
 .label-ok { @extend.label-success; }
@@ -49,8 +52,6 @@ h6,
 .panel-ok { @extend.panel-success; }
 .panel-waiting { @extend.panel-warning; }
 .panel-revoked { @extend.panel-danger; }
-
-
 
 .list{
   .list-group-item{
@@ -63,14 +64,14 @@ h6,
 .list-top>.pagination{
   margin: 6px 0 0 0;
   li span.page {
-    background-color:#ffffff;
+    background-color:white;
   }
   li span.page:hover {
-    background-color:#f6fbff;
+    background-color:$bleutay;
   }
   li.active,
   li span.page.current {
-      background-color: #f6fbff;
+      background-color: $bleutay;
       font-weight: bold;
       color: $blue;
     a {
@@ -78,18 +79,15 @@ h6,
     }
   }
 }
-a.list-group-item:hover,
-a.list-group-item:focus {
-  background-color:#f6fbff;
-}
+
 .inner-accordion { margin-bottom:5px !important; }
 .panel-heading.inner-accordion{ padding:15px; }
-//.panel.inner-accordion{ margin-bottom: 10px; }
 
 .status span.status { font-weight: bold; }
 .status span.first { font-style: italic; }
 
 .footer-logo > .navbar-wagon-brand img { width:150px; }
 
+i.fa-1x.block { width: 30px; }
 
 

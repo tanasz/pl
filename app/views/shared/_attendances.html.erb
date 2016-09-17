@@ -1,0 +1,15 @@
+                <% incident = attendances.incident? %>
+                <%= link_to training_path,
+                  class:'clearfix list-group-item list-group-item' + (incident ? '-warning' : ''),
+                  action: 'show', id:attendances.training_id do %>
+                <div class='col-xs-4 col-sm-3'>
+                  <%= attendances.training.theme %><%= incident ? " (#{attendances.incident_type})" : '' %>
+                </div>
+                <div class='col-xs-4 col-sm-3'>
+                  <%= attendances.training.date_time.to_date %>
+                </div>
+                <div class='col-xs-4 col-sm-3'>
+                  <%= attendances.training.location %>
+                </div>
+                <% end %>
+

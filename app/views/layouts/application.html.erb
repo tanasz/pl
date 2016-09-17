@@ -10,13 +10,17 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+    <!-- fb_connect... -->
     <%= render 'shared/fb_connect' %>
+    <!-- navbar... -->
     <%= render 'shared/navbar' %>
     <div class="container">
       <%= render 'shared/flashes' %>
+      <!-- yield... -->
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
+    <!-- footer... -->
     <%= render 'shared/footer' %>
   </body>
 </html>

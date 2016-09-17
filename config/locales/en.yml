@@ -87,7 +87,8 @@ en:
   postcode: 'Postcode'
   city: 'City'
   country: 'Country'
-  all_trainings_for: 'All trainings for '
+  user_training_sessions: ' training sessions'
+  attendances: 'Training sessions attended'
 
 
 

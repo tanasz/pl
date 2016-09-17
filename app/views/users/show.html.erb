@@ -1,281 +1,81 @@
-<%= render 'shared/header_show', {user_full_name: @user.full_name} %>
-<!-- after the header -->
-<div class='row'>
-  <div class='col-md-12'>
-    <div class='panel-group panel-group-lists' id='accordion'>
-      <!-- 1st collapsible panel : -->
-      <div class='panel'>
-        <div class='panel-heading'>
-          <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>
-              <strong><%= t 'user_details' %></strong>
-            </a>
-          </h4>
-        </div>
-        <div id='collapseOne' class='panel-collapse collapse in'>
-          <div class='panel-body'>
-            <div class='col-sm-12 col-md-4'>
-              <div class='thumbnail'>
-                <% if @user.photo.nil? then %>
-                  <% first_name = @user.first_name.nil? ? '' : @user.first_name %>
-                  <%= image_tag 'profile' + rand(1..6).to_s + '.png', size: "100x100", alt: first_name %>
-                <% else %>
-                  <%= image_tag @user.photo, size: "100x100", alt: @user.first_name %>
-                <% end %>
-                <div class='caption text-center'>
-                  <p><a href='#' class='btn btn-warning' role='button'><%= t 'sendmail' %></a></p>
-                </div>
-              </div>
-            </div>
-            <% current_membership = @user.current_membership %>
-            <% first_membership = @user.first_membership %>
-            <div class='col-sm-12 col-md-8'>
-              <div class='panel inner-accordion status panel-<%= current_membership.nil? ? 'default' : current_membership.status.downcase %>'>
-                <div class='panel-heading inner-accordion'>
-                  <h3 class='panel-title'>
-                    <span class='status'>
-                      <%= t 'current_membership_status' %>
-                      <%= t current_membership.nil? ? 'no_current_membership' : current_membership.status %>
-                    </span>
-                    <span class='first pull-right'>
-                      (<%= t 'first_membership' %>
-                      <%= t first_membership.nil? ? 'never_member' : first_membership.period %>)
-                    </span>
-                  </h3>
-                </div>
-                <div class='panel-body membership'>
-                  <% member_class = gender_icon = @user.get_gender_icon %>
-                  <%= render 'shared/icon_pull', { icone: gender_icon, classe:member_class } %>
-                  <%= render 'shared/icon_pull', { icone: @user.get_user_type_icon, classe:member_class } %>
-                  <%= render 'shared/icon_pull', { icone: 'mortar-board', classe:member_class } if @user.teacher? %>
-                </div>
-              </div>
-              <%= render 'shared/item_field', { icone:'phone', field_name:'mobile_phone', field_value:@user.mobile_phone } %>
-              <%= render 'shared/item_field', { icone:'home', field_name:'address', field_value:@user.address } %>
-              <%= render 'shared/item_field', { icone:'', field_name:'postcode', field_value:@user.postcode } %>
-              <%= render 'shared/item_field', { icone:'', field_name:'city', field_value:@user.city } %>
-              <%= render 'shared/item_field', { icone:'', field_name:'country', field_value:@user.country } %>
-            </div>
-          </div>
-        </div>
-      </div><!-- /panel -->
-      <!-- 2nd collapsible panel : -->
-      <div class='panel'>
-        <div class='panel-heading'>
-          <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>
-              <%= t 'emergency_contact' %>
-            </a>
-          </h4>
-        </div>
-        <div id='collapseTwo' class='panel-collapse collapse'>
-          <div class='panel-body'>
-            <p><strong><%= t 'emergency_contact_name' %></strong> <%= @user.emergency_contact_name %></p>
-            <p><strong><%= t 'emergency_contact_phone' %></strong> <%= @user.emergency_contact_phone %></p>
-            <p><strong><%= t 'emergency_contact_relationship' %></strong> <%= @user.emergency_contact_relationship %></p>
-          </div>
-        </div>
-      </div><!-- /panel -->
-      <!-- 3rd collapsible panel : -->
-      <div class='panel'>
-        <div class='panel-heading'>
-          <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
-              'Memberships'
-            </a>
-          </h4>
-        </div>
-        <div id='collapseThree' class='panel-collapse collapse'>
-          <div class='panel-body'>
-            <div class='col-sm-12 inner-list'>
-              <div class="inner-list-group-item "><%= 'titre de liste' %></div>
-                <% @memberships.each do |m| %>
-                  <div class="inner-list-group-item"><%= m.period %></div>
-                <% end %>
-            </div>
-          </div>
-        </div>
-      </div> <!-- /panel -->
-      <!-- 4th collapsible panel : -->
-      <div class='panel'>
-        <div class='panel-heading'>
-          <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='#accordion' href='#collapseFour'>
-              'Attendances'
-            </a>
-          </h4>
-        </div>
-        <div id='collapseFour' class='panel-collapse collapse'>
-          <div class='panel-body'>
-            <div class='row inner-list list'>
-              <div class="list-group-item clearfix"><%= t 'all_trainings_for' %></div>
-                <% @attendances.each do |a| %>
-                  <% incident = a.incident? %>
-                  <%= link_to training_path,
-                    class:"clearfix list-group-item list-group-item" + (incident ? '-danger' : ''),
-                    action: 'show', id:a.training_id do %>
-                  <div class='col-xs-4 col-sm-3'>
-                    <%= a.training.theme %>
+<!-- header_show... -->
+<%= render 'shared/header_show', { user_full_name: @user.full_name } %>
+<% order_number = 1 %>
+      <!-- accordion-page-top... -->
+<%= render partial: 'shared/accordion-page-top' %>
+
+<% order_number += 1 %>
+<%= render partial: 'shared/folding_panel_top', locals: { title:'user_details', order_number:order_number, collapse: 'in' } %>
+                <div class='col-sm-12 col-md-4'>
+                  <div class='thumbnail'>
+                    <% if @user.photo.nil? then %>
+                      <% first_name = @user.first_name.nil? ? '' : @user.first_name %>
+                      <%= image_tag 'profile' + rand(1..6).to_s + '.png', size: "100x100", alt: first_name %>
+                    <% else %>
+                      <%= image_tag @user.photo, size: "100x100", alt: @user.first_name %>
+                    <% end %>
+                    <div class='caption text-center'>
+                      <p><a href='#' class='btn btn-warning' role='button'><%= t 'sendmail' %></a></p>
+                    </div>
                   </div>
-                  <div class='col-xs-4 col-sm-3'>
-                    <%= a.training.date_time.to_date %>
+                </div>
+                <% current_membership = @user.current_membership %>
+                <% first_membership = @user.first_membership %>
+                <div class='col-sm-12 col-md-8'>
+                  <div class='panel inner-accordion status panel-<%= current_membership.nil? ? 'default' : current_membership.status.downcase %>'>
+                    <div class='panel-heading inner-accordion'>
+                      <h3 class='panel-title'>
+                        <span class='status'>
+                          <%= t 'current_membership_status' %>
+                          <%= t current_membership.nil? ? 'no_current_membership' : current_membership.status %>
+                        </span>
+                        <span class='first pull-right'>
+                          (<%= t 'first_membership' %>
+                          <%= t first_membership.nil? ? 'never_member' : first_membership.period %>)
+                        </span>
+                      </h3>
+                    </div>
+                    <div class='panel-body membership'>
+                      <% member_class = gender_icon = @user.get_gender_icon %>
+                      <%= render 'shared/icon_pull', { icone: gender_icon, classe:member_class } %>
+                      <%= render 'shared/icon_pull', { icone: @user.get_user_type_icon, classe:member_class } %>
+                      <%= render 'shared/icon_pull', { icone: 'mortar-board', classe:member_class } if @user.teacher? %>
+                    </div>
                   </div>
-                  <% incident %>
-                  <div class='col-xs-4 col-sm-3'>
-                    <%= a.incident_type %>
-                  </div>
-                  <% end %>
-                <% end %>
-            </div>
-          </div>
-        </div>
-      </div> <!-- /panel -->
-    </div>
-  </div>
-</div>
-<!-- fin pour le moment -->
+                <%= render 'shared/item_field', { icone:'phone', field_name:'mobile_phone', field_value:@user.mobile_phone } %>
+                <%= render 'shared/item_field', { icone:'home', field_name:'address', field_value:@user.address } %>
+                <%= render 'shared/item_field', { icone:'', field_name:'postcode', field_value:@user.postcode } %>
+                <%= render 'shared/item_field', { icone:'', field_name:'city', field_value:@user.city } %>
+                <%= render 'shared/item_field', { icone:'', field_name:'country', field_value:@user.country } %>
+  <!-- folding_panel_bottom... -->
+  <%= render 'shared/folding_panel_bottom' %>
 
-<!--
+  <!-- folding_panel_top... -->
+  <% order_number += 1 %>
+  <%= render partial: 'shared/folding_panel_top', locals: { title:'emergency_contact', order_number:order_number, collapse: nil } %>
+  <%= render partial: 'shared/folding_panel_inner_top', locals: { subtitle:nil } %>
+  <%= render 'shared/item_field', { icone:'ambulance', field_name:'emergency_contact_name', field_value:@user.emergency_contact_name } %>
+  <%= render 'shared/item_field', { icone:'phone', field_name:'emergency_contact_phone', field_value:@user.emergency_contact_phone } %>
+  <%= render 'shared/item_field', { icone:'users', field_name:'emergency_contact_relationship', field_value:@user.emergency_contact_relationship } %>
+  <!-- folding_panel_bottom... -->
+  <%= render 'shared/folding_panel_bottom' %>
 
-<div class="example">
-  <h2 class="example-title">Panels</h2>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-      <div class="panel panel-success">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-      <div class="panel panel-danger">
-        <div class="panel-heading">
-          <h3 class="panel-title">Panel title</h3>
-        </div>
-        <div class="panel-body">
-          Panel content
-        </div>
-      </div>
-    </div>
+  <!-- folding_panel_top... -->
+  <% order_number += 1 %>
+  <%= render partial: 'shared/folding_panel_top', locals: { title:'memberships', order_number:order_number, collapse: nil } %>
+  <%= render partial: 'shared/folding_panel_inner_top', locals: { subtitle:'user_memberships' } %>
+  <%= render partial: 'shared/memberships', collection: @memberships %>
+  <!-- folding_panel_bottom... -->
+  <%= render 'shared/folding_panel_bottom' %>
 
-    <div class="col-md-6">
+  <!-- folding_panel_top... -->
+  <% order_number += 1 %>
+  <%= render partial: 'shared/folding_panel_top', locals: { title:'attendances', order_number:order_number, collapse: nil } %>
+  <%= render partial: 'shared/folding_panel_inner_top', locals: { subtitle:'user_training_sessions' } %>
+  <%= render partial: 'shared/attendances', collection: @attendances %>
+  <!-- folding_panel_bottom... -->
+  <%= render 'shared/folding_panel_bottom' %>
 
+<!-- accordion-page-bottom... -->
+<%= render 'shared/accordion-page-bottom' %>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">Panel zzzzzheading</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-
-
-      <div class="panel panel-default">
-        <div class="panel-heading">Panel heading</div>
-        <div class="panel-body">
-          <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-is_board_member
-is_teacher
-
-date_of_birth
-birthplace_city
-birthplace_postcode
-birthplace_country
-
-emergency_contact_name
-emergency_contact_phone
-emergency_contact_relationship
-
-
-
-encrypted_password
-reset_password_sent_at
-remember_created_at
-sign_in_count
-current_sign_in_at
-last_sign_in_at
-current_sign_in_ip
-last_sign_in_ip
-created_at
-updated_at
-provider
-uid
-facebook_picture_url
- -->
