@@ -21,47 +21,73 @@
 
 fr:
   # global
-  app_name: "Appli-Lutte de Paris Lutte !"
-  app_meta: "Paris Lutte c'est bon mangez-en !"
+  app_name: 'Appli-Lutte de Paris Lutte !'
+  app_meta: 'Paris Lutte c''est bon mangez-en !'
+  no_results: ' - aucun résultat'
 
   # navbar
-  profile: "Profil"
-  sign_out: "Déconnexion"
+  profile: 'Profil'
+  sign_out: 'Déconnexion'
 
   # homepage
-  welcome: "Bienvenue"
-  authentify: "Authentifiez-vous"
-  watch_cats: "sinon vous pouvez aussi aller regarder des chats mignons"
-  tab_home: "Accueil"
-  tab_members: "Adhérents"
-  tab_trainings: "Sessions"
-  tab_attendances: "Participation"
-  tab_stats: "Stats"
-  text_home: "Plein d'infos ici"
-  text_members: "Les adhérents de notre club"
-  text_sessions: "Nos séances d'entraînement"
-  text_attendance: "La participation à nos séances d'entraînement"
-  text_stats: "Stats diverses"
-  members_1: "Liste des adhérents"
-  members_2: "Ajouter un membre"
-  members_3: "Liste des abonnements"
-  members_4: "Ajouter un abonnement"
-  trainings_1: "Liste des sessions"
-  trainings_2: "Ajouter une session"
-  trainings_3: "Enregistrer les participants"
-  stats_1: "Ma belle stat 1"
-  stats_2: "Ma belle stat 2"
+  welcome: 'Bienvenue'
+  authentify: 'Authentifiez-vous'
+  watch_cats: 'ou allez regarder des chats mignons'
+  tab_home: 'Accueil'
+  tab_members: 'Adhérents'
+  tab_trainings: 'Sessions'
+  tab_attendances: 'Participation'
+  tab_stats: 'Stats'
+  text_home: 'Plein d''infos ici'
+  text_members: 'Les adhérents de notre club'
+  text_sessions: 'Nos séances d''entraînement'
+  text_attendance: 'La participation à nos séances d''entraînement'
+  text_stats: 'Stats diverses'
+  members_1: 'Liste des adhérents'
+  members_2: 'Ajouter un membre'
+  members_3: 'Liste des abonnements'
+  members_4: 'Ajouter un abonnement'
+  trainings_1: 'Liste des sessions'
+  trainings_2: 'Ajouter une session'
+  trainings_3: 'Enregistrer les participants'
+  stats_1: 'Ma belle stat 1'
+  stats_2: 'Ma belle stat 2'
 
   # views
-  h1_users: "Tous les adhérents"
-  h1_trainings: "Toutes les sessions"
-  h1_user_show: 'Infos adhérent'
+  h1_users: 'Tous les adhérents'
+  h1_trainings: 'Toutes les sessions'
+  h1_user_show: 'Infos adhérent '
+  h1_membership_show: 'Adhésion '
 
   # memberships
-  no_membership: "Aucun"
-  ok: "Valide"
-  waiting: "En attente"
-  revoked: "Expiré"
+  no_membership: 'Aucun'
+  ok: 'Valide'
+  waiting: 'En attente'
+  revoked: 'Radié'
+  no_current_membership: 'pas d''adhésion en cours'
+  memberships: 'Adhésions'
+  user_memberships: 'Historique des adhésions'
+  membership_details: 'Détail de l''adhésion'
+  standard_membership: 'Adhésion tarif normal'
+  student_membership: 'Adhésion tarif étudiant'
+  reduced_membership: 'Adhésion tarif réduit'
+  membership_ok: 'Adhésion validée'
+  membership_waiting: 'Adhésion en attente'
+  membership_revoked: 'Adhésion révoquée !'
+  membership_type: 'Type d''adhésion'
+  membership_fee: 'Montant de l''adhésion'
+  membership_fee_is_paid: ' (montant réglé)'
+  membership_fee_is_due: ' (montant dû !)'
+  membership_application_ok: 'Dossier complet'
+  membership_medical_certificate_ok: 'Certificat médical fourni'
+  membership_commentary: 'Commentaire'
+  membership_status: 'Statut de l''adhésion'
+  membership_license_number: 'Numéro de licence'
+  membership_club_number: 'Numéro d''inscription au club'
+  membership_medical_certificate_complete: 'Certificat fourni'
+  membership_medical_certificate_incomplete: 'Certificat manquant !'
+  membership_application_complete: 'Dossier complet'
+  membership_application_incomplete: 'Dossier incomplet !'
 
   # users
   user_details: 'Coordonnées adhérent'
@@ -71,10 +97,10 @@ fr:
   first_membership: 'Première adhésion : '
   never_member: 'aucun abonnement trouvé'
   current_membership_status: 'Statut de l''adhésion :'
-  emergency_contact: 'Personne à contacter en cas d''urgence :'
-  emergency_contact_name: 'Nom du contact :'
-  emergency_contact_phone: 'Numéro de téléphone :'
-  emergency_contact_relationship: 'Nature du lien avec le membre :'
+  emergency_contact: 'Personne à contacter en cas d''urgence'
+  emergency_contact_name: 'Nom du contact'
+  emergency_contact_phone: 'Numéro de téléphone'
+  emergency_contact_relationship: 'Nature du lien avec le membre'
   email: 'E-mail'
   mobile_phone: 'Téléphone portable'
   gender: 'Genre'
@@ -86,16 +112,16 @@ fr:
   postcode: 'Code postal'
   city: 'Ville'
   country: 'Pays'
-  user_training_sessions: ' séances d''entraînement'
-  attendances: 'Training sessions attended'
+  user_training_sessions: 'Toutes les séances'
+  attendances: 'Séances d''entraînement'
 
 
   # formats
   time:
     formats:
-      default: "%d/%m/%Y"
-      short: "%d/%m"
-      long: "%d %B, %Y"
+      default: '%d/%m/%Y'
+      short: '%d/%m'
+      long: '%d %B, %Y'
   date:
     month_names:
       [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
@@ -103,4 +129,4 @@ fr:
       [~, Jan, Fév, Mar, Avr, Mai, Juin, Jul, Août, Sep, Oct, Nov, Déc]
     day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
     formats:
-      default: "%A/%B/%Y %H:%M:%S"
+      default: '%A/%B/%Y %H:%M:%S'

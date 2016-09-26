@@ -81,8 +81,11 @@ h6,
 }
 
 .inner-accordion { margin-bottom:5px !important; }
+.inner-accordion.has-warning input { background-color:white; }
 .panel-heading.inner-accordion{ padding:15px; }
-
+.panel-title a:active,
+.panel-title a:focus,
+.panel-title a:hover { color:black !important; font-weight:bold; }
 .status span.status { font-weight: bold; }
 .status span.first { font-style: italic; }
 

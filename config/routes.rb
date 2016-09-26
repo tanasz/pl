@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'pages#home'
-  get 'profile', to: 'users#show'
+  get 'profile', to: 'users#show' #id ?
   get 'stats', to: 'pages#stats'
   scope '(:locale)', locale: /fr|en/ do
     resources :memberships, except: [:create, :destroy]

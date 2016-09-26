@@ -1,5 +1,5 @@
                 <% incident = attendances.incident? %>
-                <%= link_to training_path,
+                <%= link_to attendances,
                   class:'clearfix list-group-item list-group-item' + (incident ? '-warning' : ''),
                   action: 'show', id:attendances.training_id do %>
                 <div class='col-xs-4 col-sm-3'>

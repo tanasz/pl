@@ -14,6 +14,8 @@ class MembershipsController < ApplicationController
   end
 
   def show
+    @membership = Membership.find(params[:id])
+    @user = @membership.user
   end
 
   def update

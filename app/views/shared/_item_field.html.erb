@@ -1,8 +1,8 @@
                 <% if icone.length > 0 %>
-                  <div class='input-group inner-accordion'>
+                  <div class='input-group inner-accordion <%= additional_class ||= nil %>'>
                     <span class='input-group-addon'><%= render 'shared/icon_small', { icone: icone, classe:'block' } %></span>
                 <% else %>
-                  <div class='inner-accordion'>
+                  <div class='inner-accordion <%= additional_class ||= nil %>'>
                 <% end %>
-                    <input type='text' class='form-control' disabled placeholder='<%= field_value %>'>
+                    <input type='text' class='form-control' disabled placeholder='<%= t field_name %>' value='<%= field_value %>' >
                   </div>

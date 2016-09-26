@@ -23,6 +23,7 @@ en:
   # global
   app_name: 'Paris Lutte app!'
   app_meta: 'Be cute with Paris Lutte'
+  no_results: ' - no results'
 
   # navbar
   profile: 'Profile'
@@ -56,13 +57,37 @@ en:
   h1_users: 'Members list'
   h1_trainings: 'Training sessions list'
   h1_user_show: 'Member view'
+  h1_membership_show: 'Membership: '
 
   # memberships
   no_membership: 'None'
   ok: 'Valid'
   waiting: 'Waiting'
   revoked: 'Expired'
-
+  no_current_membership: 'no current membership'
+  memberships: 'Memberships'
+  user_memberships: 'Memberships history'
+  membership_details: 'Membership details'
+  standard_membership: 'Standard rate membership'
+  student_membership: 'Student rate membership'
+  reduced_membership: 'Special rate membership'
+  membership_ok: 'OK'
+  membership_waiting: 'Waiting'
+  membership_revoked: 'Revoked'
+  membership_type: 'Membership type?'
+  membership_fee: 'Membership fee?'
+  membership_fee_is_paid: ' (paid in full)'
+  membership_fee_is_due: ' (due)'
+  membership_application_ok: 'Application complete?'
+  membership_medical_certificate_ok: 'Medical certificate given?'
+  membership_commentary: 'Commentary?'
+  membership_status: 'Membership status?'
+  membership_license_number: 'License number?'
+  membership_club_number: 'Club number?'
+  membership_medical_certificate_complete: 'Medical certificate given'
+  membership_medical_certificate_incomplete: 'Medical certificate missing'
+  membership_application_complete: 'Application complete'
+  membership_application_incomplete: 'Application incomplete'
 
   # users
   user_details: 'User details'
@@ -87,8 +112,8 @@ en:
   postcode: 'Postcode'
   city: 'City'
   country: 'Country'
-  user_training_sessions: ' training sessions'
-  attendances: 'Training sessions attended'
+  user_training_sessions: 'All attended sessions'
+  attendances: 'Training sessions'
 
 
 

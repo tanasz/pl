@@ -40,13 +40,13 @@ memberships = Array.new
 100.times do
   m = Membership.new
   m.period = ['2015', '2016', '2017', '2018', '2014'].sample
-  m.membership_type = ['standard', 'student', 'pole-combat'].sample
+  m.membership_type = ['standard_membership', 'student_membership', 'reduced_membership'].sample
   m.fee = ['180', '210', '85'].sample
   m.fee_is_paid = [true, false].sample
   m.application_ok = [true, false].sample
   m.medical_certificate_ok = [true, false].sample
   m.commentary = Faker::Hipster.paragraph(1, true, 1)
-  m.status = ['OK', 'Waiting', 'Revoked'].sample
+  m.status = ['membership_ok', 'membership_waiting', 'membership_revoked'].sample
   m.license_number = rand(1000..8000)
   m.club_number = rand(100..1000)
   m.user = users.sample

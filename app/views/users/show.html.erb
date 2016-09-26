@@ -1,81 +1,35 @@
-<!-- header_show... -->
-<%= render 'shared/header_show', { user_full_name: @user.full_name } %>
+
+<%= render 'shared/header_show', { h1_show: 'h1_user_show', header_title: @user.full_name } %>
+
+<%= render 'shared/accordion-page-top' %>
+
 <% order_number = 1 %>
-      <!-- accordion-page-top... -->
-<%= render partial: 'shared/accordion-page-top' %>
+<%= render 'shared/folding_panel_top', { title: 'user_details', order_number: order_number, collapse: 'in' } %>
+<%= render 'shared/user_photo_block' %>
+<%= render 'shared/user_details_block' %>
+<%= render 'shared/folding_panel_bottom' %>
 
 <% order_number += 1 %>
-<%= render partial: 'shared/folding_panel_top', locals: { title:'user_details', order_number:order_number, collapse: 'in' } %>
-                <div class='col-sm-12 col-md-4'>
-                  <div class='thumbnail'>
-                    <% if @user.photo.nil? then %>
-                      <% first_name = @user.first_name.nil? ? '' : @user.first_name %>
-                      <%= image_tag 'profile' + rand(1..6).to_s + '.png', size: "100x100", alt: first_name %>
-                    <% else %>
-                      <%= image_tag @user.photo, size: "100x100", alt: @user.first_name %>
-                    <% end %>
-                    <div class='caption text-center'>
-                      <p><a href='#' class='btn btn-warning' role='button'><%= t 'sendmail' %></a></p>
-                    </div>
-                  </div>
-                </div>
-                <% current_membership = @user.current_membership %>
-                <% first_membership = @user.first_membership %>
-                <div class='col-sm-12 col-md-8'>
-                  <div class='panel inner-accordion status panel-<%= current_membership.nil? ? 'default' : current_membership.status.downcase %>'>
-                    <div class='panel-heading inner-accordion'>
-                      <h3 class='panel-title'>
-                        <span class='status'>
-                          <%= t 'current_membership_status' %>
-                          <%= t current_membership.nil? ? 'no_current_membership' : current_membership.status %>
-                        </span>
-                        <span class='first pull-right'>
-                          (<%= t 'first_membership' %>
-                          <%= t first_membership.nil? ? 'never_member' : first_membership.period %>)
-                        </span>
-                      </h3>
-                    </div>
-                    <div class='panel-body membership'>
-                      <% member_class = gender_icon = @user.get_gender_icon %>
-                      <%= render 'shared/icon_pull', { icone: gender_icon, classe:member_class } %>
-                      <%= render 'shared/icon_pull', { icone: @user.get_user_type_icon, classe:member_class } %>
-                      <%= render 'shared/icon_pull', { icone: 'mortar-board', classe:member_class } if @user.teacher? %>
-                    </div>
-                  </div>
-                <%= render 'shared/item_field', { icone:'phone', field_name:'mobile_phone', field_value:@user.mobile_phone } %>
-                <%= render 'shared/item_field', { icone:'home', field_name:'address', field_value:@user.address } %>
-                <%= render 'shared/item_field', { icone:'', field_name:'postcode', field_value:@user.postcode } %>
-                <%= render 'shared/item_field', { icone:'', field_name:'city', field_value:@user.city } %>
-                <%= render 'shared/item_field', { icone:'', field_name:'country', field_value:@user.country } %>
-  <!-- folding_panel_bottom... -->
-  <%= render 'shared/folding_panel_bottom' %>
+<%= render 'shared/folding_panel_top', { title: 'emergency_contact', order_number: order_number } %>
+<%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
+<%= render 'shared/item_field', { icone: 'ambulance', field_name: 'emergency_contact_name', field_value: @user.emergency_contact_name ||= '' } %>
+<%= render 'shared/item_field', { icone: 'phone', field_name: 'emergency_contact_phone', field_value: @user.emergency_contact_phone ||= '' } %>
+<%= render 'shared/item_field', { icone: 'users', field_name: 'emergency_contact_relationship', field_value: @user.emergency_contact_relationship ||= '' } %>
+<%= render 'shared/folding_panel_bottom' %>
 
-  <!-- folding_panel_top... -->
-  <% order_number += 1 %>
-  <%= render partial: 'shared/folding_panel_top', locals: { title:'emergency_contact', order_number:order_number, collapse: nil } %>
-  <%= render partial: 'shared/folding_panel_inner_top', locals: { subtitle:nil } %>
-  <%= render 'shared/item_field', { icone:'ambulance', field_name:'emergency_contact_name', field_value:@user.emergency_contact_name } %>
-  <%= render 'shared/item_field', { icone:'phone', field_name:'emergency_contact_phone', field_value:@user.emergency_contact_phone } %>
-  <%= render 'shared/item_field', { icone:'users', field_name:'emergency_contact_relationship', field_value:@user.emergency_contact_relationship } %>
-  <!-- folding_panel_bottom... -->
-  <%= render 'shared/folding_panel_bottom' %>
+<% order_number += 1 %>
+<% no_results = @memberships.empty? %>
+<%= render 'shared/folding_panel_top', { title: 'memberships', order_number: order_number } %>
+<%= render 'shared/folding_panel_inner_top', { subtitle: 'user_memberships', no_results: no_results } %>
+<%= render partial: 'shared/memberships', collection: @memberships unless no_results %>
+<%= render 'shared/folding_panel_bottom' %>
 
-  <!-- folding_panel_top... -->
-  <% order_number += 1 %>
-  <%= render partial: 'shared/folding_panel_top', locals: { title:'memberships', order_number:order_number, collapse: nil } %>
-  <%= render partial: 'shared/folding_panel_inner_top', locals: { subtitle:'user_memberships' } %>
-  <%= render partial: 'shared/memberships', collection: @memberships %>
-  <!-- folding_panel_bottom... -->
-  <%= render 'shared/folding_panel_bottom' %>
+<% order_number += 1 %>
+<% no_results = @attendances.empty? %>
+<%= render 'shared/folding_panel_top', { title: 'attendances', order_number: order_number } %>
+<%= render 'shared/folding_panel_inner_top', { subtitle: 'user_training_sessions', no_results: no_results } %>
+<%= render partial: 'shared/attendances', collection: @attendances unless no_results %>
+<%= render 'shared/folding_panel_bottom' %>
 
-  <!-- folding_panel_top... -->
-  <% order_number += 1 %>
-  <%= render partial: 'shared/folding_panel_top', locals: { title:'attendances', order_number:order_number, collapse: nil } %>
-  <%= render partial: 'shared/folding_panel_inner_top', locals: { subtitle:'user_training_sessions' } %>
-  <%= render partial: 'shared/attendances', collection: @attendances %>
-  <!-- folding_panel_bottom... -->
-  <%= render 'shared/folding_panel_bottom' %>
-
-<!-- accordion-page-bottom... -->
 <%= render 'shared/accordion-page-bottom' %>
 

@@ -1,6 +1,7 @@
                 <div class='row inner-list list list-group'>
-                  <% if !subtitle.nil? then %>
+                  <% if subtitle %>
                   <div class='list-group-item clearfix head'>
-                    <%= t subtitle %>
+                    <% no_results ||= false %>
+                    <%= t subtitle %> <%= t 'no_results' if no_results %>
                   </div> <!-- avant item -->
                   <% end %>

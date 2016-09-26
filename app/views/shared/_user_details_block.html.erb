@@ -1,0 +1,28 @@
+                <% current_membership = @user.current_membership %>
+                <% first_membership = @user.first_membership %>
+                <div class='col-sm-12 col-md-8'>
+                  <div class='panel inner-accordion status panel-<%= current_membership.nil? ? 'default' : current_membership.status.downcase %>'>
+                    <div class='panel-heading inner-accordion'>
+                      <h3 class='panel-title'>
+                        <span class='status'>
+                          <%= t 'current_membership_status' %>
+                          <%= t current_membership.nil? ? 'no_current_membership' : current_membership.status %>
+                        </span>
+                        <span class='first pull-right'>
+                          (<%= t 'first_membership' %>
+                          <%= t first_membership.nil? ? 'never_member' : first_membership.period %>)
+                        </span>
+                      </h3>
+                    </div>
+                    <div class='panel-body membership'>
+                      <% member_class = gender_icon = @user.get_gender_icon %>
+                      <%= render 'shared/icon_pull', { icone: gender_icon, classe:member_class } %>
+                      <%= render 'shared/icon_pull', { icone: @user.get_user_type_icon, classe:member_class } %>
+                      <%= render 'shared/icon_pull', { icone: 'mortar-board', classe:member_class } if @user.teacher? %>
+                    </div>
+                  </div>
+                <%= render 'shared/item_field', { icone:'phone', field_name:'mobile_phone', field_value:@user.mobile_phone } %>
+                <%= render 'shared/item_field', { icone:'home', field_name:'address', field_value:@user.address } %>
+                <%= render 'shared/item_field', { icone:'', field_name:'postcode', field_value:@user.postcode } %>
+                <%= render 'shared/item_field', { icone:'', field_name:'city', field_value:@user.city } %>
+                <%= render 'shared/item_field', { icone:'', field_name:'country', field_value:@user.country } %>

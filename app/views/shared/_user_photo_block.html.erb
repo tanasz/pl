@@ -1,0 +1,13 @@
+                <div class='col-sm-12 col-md-4'>
+                  <div class='thumbnail'>
+                    <% if @user.photo.nil? then %>
+                      <% first_name = @user.first_name.nil? ? '' : @user.first_name %>
+                      <%= image_tag 'profile' + rand(1..6).to_s + '.png', size: "100x100", alt: first_name %>
+                    <% else %>
+                      <%= image_tag @user.photo, size: "100x100", alt: @user.first_name %>
+                    <% end %>
+                    <div class='caption text-center'>
+                      <p><a href='#' class='btn btn-warning' role='button'><%= t 'sendmail' %></a></p>
+                    </div>
+                  </div>
+                </div>
