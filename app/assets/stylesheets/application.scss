@@ -44,14 +44,14 @@ h6,
 .inner-list .head{ background-color: $grisclair;}
 
 .label-no_membership { @extend.label-default; }
-.label-ok { @extend.label-success; }
-.label-waiting { @extend.label-warning; }
-.label-revoked { @extend.label-danger; }
+.label-membership_ok { @extend.label-success; }
+.label-membership_waiting { @extend.label-warning; }
+.label-membership_revoked { @extend.label-danger; }
 
 .panel-no_membership { @extend.panel-default; }
-.panel-ok { @extend.panel-success; }
-.panel-waiting { @extend.panel-warning; }
-.panel-revoked { @extend.panel-danger; }
+.panel-membership_ok { @extend.panel-success; }
+.panel-membership_waiting { @extend.panel-warning; }
+.panel-membership_revoked { @extend.panel-danger; }
 
 .list{
   .list-group-item{
