@@ -11,6 +11,11 @@ class TrainingsController < ApplicationController
   def new
   end
 
+  def show
+    @training = Training.find(params[:id])
+    @attending_users = Attendance.where(training_id: params[:id])
+  end
+
   def destroy
   end
 

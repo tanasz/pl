@@ -89,6 +89,11 @@ en:
   membership_application_complete: 'Application complete'
   membership_application_incomplete: 'Application incomplete'
 
+  # attendances
+  attendances_details: 'Training session details'
+  attending_members_count: 'members present'
+  training_incidents: 'incidents'
+  trainer_name: 'Coach'
   # users
   user_details: 'User details'
   contact_panel_title: 'Contact details'

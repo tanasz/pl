@@ -1,2 +1,16 @@
-<h1>Trainings#show</h1>
-<p>Find me in app/views/trainings/show.html.erb</p>
+<%= render 'shared/header_show', { h1_show: 'h1_training_show', header_title: "#{l @training.date_time, format: :complete } (#{@training.location})" } %>
+<%= render 'shared/accordion-page-top' %>
+
+<% order_number = 1 %>
+<%= render 'shared/folding_panel_top', { title: 'attendances_details', order_number: order_number, collapse: 'in' } %>
+<%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
+
+<%= render 'shared/item_field', { icone: 'users', field_name: 'attending_members_count', field_value: "#{ @attending_users.count } #{ t 'attending_members_count' }" } %>
+<%= render 'shared/item_field', { icone: 'graduation-cap', field_name: 'trainer_name', field_value: "Trainer name #todo" } %>
+<%= render 'shared/item_field', { icone: 'ambulance', field_name: 'training_incidents', field_value: "? #{ t 'training_incidents' } #todo" } %>
+
+<% no_results = @attending_users.empty? %>
+<%= render partial: 'shared/attending_users', collection: @attending_users unless no_results %>
+<%= render 'shared/folding_panel_bottom' %>
+
+<%= render 'shared/accordion-page-bottom' %>

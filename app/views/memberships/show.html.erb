@@ -8,18 +8,16 @@
 
 <% order_number = 1 %>
 <%= render 'shared/folding_panel_top', { title: 'membership_details', order_number: order_number, collapse: 'in' } %>
-
 <%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
 
 <%= render 'shared/item_field', { icone: 'star' + status, field_name: 'membership_status', field_value: t( @membership.status ||= nil ) } %>
 <%= render 'shared/item_field', { icone: 'server', field_name: 'membership_type', field_value: t( @membership.membership_type ||= nil ) } %>
 <%= render 'shared/item_field', { icone: 'money', field_name: 'membership_fee', field_value: "#{ @membership.fee ||= nil } € #{ t fee_ok }", additional_class: ( 'has-warning' unless @membership.fee_is_paid ) } %>
-<%= render 'shared/item_field', { icone: 'folder-open', field_name: 'membership_application_ok', field_value: t(application_ok), additional_class: ( 'has-warning' unless @membership.application_ok )  } %>
+<%= render 'shared/item_field', { icone: 'folder-open', field_name: 'membership_application_ok', field_value: t(application_ok), additional_class: ( 'has-warning' unless @membership.application_ok ) } %>
 <%= render 'shared/item_field', { icone: 'medkit', field_name: 'membership_medical_certificate_ok', field_value: t(certificate_ok), additional_class: ( 'has-warning' unless @membership.medical_certificate_ok ) } %>
 <%= render 'shared/item_field', { icone: 'question-circle', field_name: 'membership_commentary', field_value: @membership.commentary ||= nil } %>
 <%= render 'shared/item_field', { icone: '', field_name: 'membership_license_number', field_value: "#{ t 'membership_license_number' } : #{ @membership.license_number ||= nil }" } %>
 <%= render 'shared/item_field', { icone: '', field_name: 'membership_club_number', field_value: "#{ t 'membership_club_number' } : #{ @membership.club_number ||= nil }" } %>
 
 <%= render 'shared/folding_panel_bottom' %>
-
 <%= render 'shared/accordion-page-bottom' %>

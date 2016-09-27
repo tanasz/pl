@@ -58,6 +58,7 @@ fr:
   h1_trainings: 'Toutes les sessions'
   h1_user_show: 'Infos adhérent '
   h1_membership_show: 'Adhésion '
+  h1_training_show: 'Session du '
 
   # memberships
   no_membership: 'Aucun'
@@ -89,6 +90,12 @@ fr:
   membership_application_complete: 'Dossier complet'
   membership_application_incomplete: 'Dossier incomplet !'
 
+  # attendances
+  attendances_details: 'Détail de la séance d''entraînement'
+  attending_members_count: 'personnes présentes'
+  training_incidents: 'incidents'
+  trainer_name: 'Entraîneur'
+
   # users
   user_details: 'Coordonnées adhérent'
   contact_panel_title: 'Coordonnées'
@@ -115,13 +122,13 @@ fr:
   user_training_sessions: 'Toutes les séances'
   attendances: 'Séances d''entraînement'
 
-
   # formats
   time:
     formats:
       default: '%d/%m/%Y'
       short: '%d/%m'
       long: '%d %B, %Y'
+      complete: '%d/%m/%Y - %H:%M'
   date:
     month_names:
       [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
