@@ -6,16 +6,13 @@
 
     <% @trainings.each do |t| %>
       <%= link_to t, class:'list-group-item clearfix' do %>
-      <div class='col-xs-4 col-sm-3'>
-        <%= t.date_time.to_date %>
+      <div class='col-xs-4 col-sm-5'>
+        <%= l t.date_time, format: :complete %>
       </div>
-      <div class='col-xs-3 col-sm-2'>
-        <%= t.date_time.to_formatted_s(:time) %>
-      </div>
-      <div class='col-xs-5 col-sm-4'>
+      <div class='hidden-xs col-sm-4'>
         <%= t t.theme %>
       </div>
-      <div class='hidden-xs col-sm-3'>
+      <div class='hidden-xs col-sm-2'>
         <%= t.location %>
       </div>
 
