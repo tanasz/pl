@@ -1,7 +1,7 @@
                 <% incident = attending_users.incident? %>
                 <%= link_to attending_users.user,
                   class:'clearfix list-group-item list-group-item' + (incident ? '-warning' : ''),
-                  action: 'show', id:attending_users.training_id do %>
+                  action: 'show', id: attending_users.training_id do %>
                 <div class='col-xs-4 col-sm-3'>
                   <%= attending_users.user.full_name %><%= incident ? " (#{attending_users.incident_type})" : '' %>
                 </div>

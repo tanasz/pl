@@ -65,6 +65,8 @@ i         = 1
   t.duration = ['1', '1:30', '2'].sample # en heures ?
   t.theme = ['Wrestling', 'Physical prep', 'Yoga', 'Running'].sample
   t.location = ['Tour des dames','Ailleurs'].sample
+  t.coaches = [users.sample, users.sample]
+  t.board_members = [users.sample, users.sample]
   t.save
   trainings << t
 end

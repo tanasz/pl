@@ -1,5 +1,8 @@
 class AddCoachRefToTraining < ActiveRecord::Migration[5.0]
   def change
-    add_reference :trainings, :user, foreign_key: true
+    create_table :trainings_coaches, id: false do |t|
+      t.belongs_to :trainings, index: true
+      t.belongs_to :coaches, index: true
+    end
   end
 end

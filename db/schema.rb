@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929000709) do
+ActiveRecord::Schema.define(version: 20161010103841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,8 +51,20 @@ ActiveRecord::Schema.define(version: 20160929000709) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_trainings_on_user_id", using: :btree
+  end
+
+  create_table "trainings_board_members", id: false, force: :cascade do |t|
+    t.integer "trainings_id"
+    t.integer "board_members_id"
+    t.index ["board_members_id"], name: "index_trainings_board_members_on_board_members_id", using: :btree
+    t.index ["trainings_id"], name: "index_trainings_board_members_on_trainings_id", using: :btree
+  end
+
+  create_table "trainings_coaches", id: false, force: :cascade do |t|
+    t.integer "trainings_id"
+    t.integer "coaches_id"
+    t.index ["coaches_id"], name: "index_trainings_coaches_on_coaches_id", using: :btree
+    t.index ["trainings_id"], name: "index_trainings_coaches_on_trainings_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,5 +110,4 @@ ActiveRecord::Schema.define(version: 20160929000709) do
   add_foreign_key "attendances", "trainings"
   add_foreign_key "attendances", "users"
   add_foreign_key "memberships", "users"
-  add_foreign_key "trainings", "users"
 end

@@ -91,9 +91,12 @@ en:
 
   # attendances
   attendances_details: 'Training session details'
-  attending_members_count: 'members present'
+  attending_members_count: 'member/s present'
+  attending_coaches_count: 'coach/es present'
+  attending_board_members_count: 'board member/s present'
   training_incidents: 'incidents'
   trainer_name: 'Coach'
+
   # users
   user_details: 'User details'
   contact_panel_title: 'Contact details'

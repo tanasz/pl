@@ -1,6 +1,5 @@
 class TrainingsController < ApplicationController
 
-
   def index
     @trainings = Training.active.order(:date_time).page params[:page]
   end
@@ -14,6 +13,8 @@ class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
     @attending_users = Attendance.where(training_id: params[:id])
+    @attending_coaches = @training.coaches
+    @attending_board_members = @training.board_members
   end
 
   def destroy

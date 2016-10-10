@@ -1,6 +1,16 @@
 class User < ApplicationRecord
   has_many :memberships, -> { order('period DESC') }
   has_many :attendances, -> { order('training_id DESC') }
+  has_and_belongs_to_many :trainings,
+                          :class_name => 'Training',
+                          :join_table => 'trainings_board_members',
+                          :foreign_key => 'trainings_id',
+                          :association_foreign_key => 'board_members_id'
+  has_and_belongs_to_many :trainings,
+                          :class_name => 'Training',
+                          :join_table => 'trainings_coaches',
+                          :foreign_key => 'trainings_id',
+                          :association_foreign_key => 'coaches_id'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
