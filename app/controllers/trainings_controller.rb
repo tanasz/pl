@@ -13,7 +13,7 @@ class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
     @attending_users = Attendance.where(training_id: params[:id])
-    @attending_coaches = @training.coaches
+    @attending_teachers = @training.teachers
     @attending_board_members = @training.board_members
   end
 

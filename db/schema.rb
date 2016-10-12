@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(version: 20161010103841) do
     t.index ["trainings_id"], name: "index_trainings_board_members_on_trainings_id", using: :btree
   end
 
-  create_table "trainings_coaches", id: false, force: :cascade do |t|
+  create_table "trainings_teachers", id: false, force: :cascade do |t|
     t.integer "trainings_id"
-    t.integer "coaches_id"
-    t.index ["coaches_id"], name: "index_trainings_coaches_on_coaches_id", using: :btree
-    t.index ["trainings_id"], name: "index_trainings_coaches_on_trainings_id", using: :btree
+    t.integer "teachers_id"
+    t.index ["teachers_id"], name: "index_trainings_teachers_on_teachers_id", using: :btree
+    t.index ["trainings_id"], name: "index_trainings_teachers_on_trainings_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

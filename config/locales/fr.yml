@@ -93,7 +93,7 @@ fr:
   # attendances
   attendances_details: 'Détail de la séance d''entraînement'
   attending_members_count: 'personne/s présente/s'
-  attending_coaches_count: 'entraîneur/s présent/s'
+  attending_teachers_count: 'entraîneur/s présent/s'
   attending_board_members_count: 'membre/s du CA présent/s'
   training_incidents: 'incidents'
   trainer_name: 'Entraîneur'

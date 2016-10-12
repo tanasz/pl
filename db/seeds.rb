@@ -55,9 +55,11 @@ memberships = Array.new
 end
 puts "- #{memberships.count} memberships seeded!"
 
-trainings = Array.new
-debut     = '02 Sep 2013 18:00:00'.to_datetime
-i         = 1
+trainings     = Array.new
+debut         = '02 Sep 2013 18:00:00'.to_datetime
+i             = 1
+board_members = User.is_board_member
+teachers      = User.is_teacher
 500.times do
   i += 3
   t = Training.new
@@ -65,8 +67,8 @@ i         = 1
   t.duration = ['1', '1:30', '2'].sample # en heures ?
   t.theme = ['Wrestling', 'Physical prep', 'Yoga', 'Running'].sample
   t.location = ['Tour des dames','Ailleurs'].sample
-  t.coaches = [users.sample, users.sample]
-  t.board_members = [users.sample, users.sample]
+  t.board_members = [board_members.sample, board_members.sample]
+  t.teachers = [teachers.sample, teachers.sample]
   t.save
   trainings << t
 end

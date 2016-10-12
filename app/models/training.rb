@@ -5,10 +5,10 @@ class Training < ApplicationRecord
                           :join_table => 'trainings_board_members',
                           :foreign_key => 'board_members_id',
                           :association_foreign_key => 'trainings_id'
-  has_and_belongs_to_many :coaches,
+  has_and_belongs_to_many :teachers,
                           :class_name => 'User',
-                          :join_table => 'trainings_coaches',
-                          :foreign_key => 'coaches_id',
+                          :join_table => 'trainings_teachers',
+                          :foreign_key => 'teachers_id',
                           :association_foreign_key => 'trainings_id'
   scope :active, -> {where('date_time >= ?', Time.current)}
 end

@@ -4,9 +4,9 @@
 <%= render 'shared/folding_panel_top', { title: 'attendances_details', order_number: order_number, collapse: 'in' } %>
 <%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
 
-<% no_results = @attending_coaches.empty? %>
-<%= render 'shared/item_field', { icone: 'graduation-cap', field_name: 'attending_coaches_count', field_value: "#{ @attending_coaches.count } #{ t 'attending_coaches_count' }" } %>
-<%= render partial: 'shared/attending_coaches', collection: @attending_coaches unless no_results %>
+<% no_results = @attending_teachers.empty? %>
+<%= render 'shared/item_field', { icone: 'graduation-cap', field_name: 'attending_teachers_count', field_value: "#{ @attending_teachers.count } #{ t 'attending_teachers_count' }" } %>
+<%= render partial: 'shared/attending_teachers', collection: @attending_teachers unless no_results %>
 
 <% no_results = @attending_board_members.empty? %>
 <%= render 'shared/item_field', { icone: 'graduation-cap', field_name: 'attending_board_members_count', field_value: "#{ @attending_board_members.count } #{ t 'attending_board_members_count' }" } %>

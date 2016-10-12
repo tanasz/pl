@@ -8,9 +8,13 @@ class User < ApplicationRecord
                           :association_foreign_key => 'board_members_id'
   has_and_belongs_to_many :trainings,
                           :class_name => 'Training',
-                          :join_table => 'trainings_coaches',
+                          :join_table => 'trainings_teachers',
                           :foreign_key => 'trainings_id',
-                          :association_foreign_key => 'coaches_id'
+                          :association_foreign_key => 'teachers_id'
+  scope :is_teacher, -> {where('is_teacher = ?', true)}
+  scope :is_board_member, -> {where('is_board_member = ?', true)}
+  scope :active, -> {where('date_time >= ?', Time.current)}
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
