@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   has_many :memberships, -> { order('period DESC') }
   has_many :attendances, -> { order('training_id DESC') }
-  has_and_belongs_to_many :trainings,
+  has_and_belongs_to_many :trainings1,
                           :class_name => 'Training',
                           :join_table => 'trainings_board_members',
                           :foreign_key => 'trainings_id',
                           :association_foreign_key => 'board_members_id'
-  has_and_belongs_to_many :trainings,
+  has_and_belongs_to_many :trainings2,
                           :class_name => 'Training',
                           :join_table => 'trainings_teachers',
                           :foreign_key => 'trainings_id',

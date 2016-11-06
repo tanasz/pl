@@ -24,6 +24,7 @@ en:
   app_name: 'Paris Lutte app!'
   app_meta: 'Be cute with Paris Lutte'
   no_results: ' - no results'
+  actions: 'Actions'
 
   # navbar
   profile: 'Profile'
@@ -96,6 +97,11 @@ en:
   attending_board_members_count: 'board member/s present'
   training_incidents: 'incidents'
   trainer_name: 'Coach'
+  training_details: 'Training details'
+  training_location: 'Place'
+  ca_members_count: 'Attending board members'
+  incidents_count: 'Incidents'
+  training_duration: ' hour/s'
 
   # users
   user_details: 'User details'

@@ -24,6 +24,7 @@ fr:
   app_name: 'Appli-Lutte de Paris Lutte !'
   app_meta: 'Paris Lutte c''est bon mangez-en !'
   no_results: ' - aucun résultat'
+  actions: 'Actions'
 
   # navbar
   profile: 'Profil'
@@ -35,7 +36,7 @@ fr:
   watch_cats: 'ou allez regarder des chats mignons'
   tab_home: 'Accueil'
   tab_members: 'Adhérents'
-  tab_trainings: 'Sessions'
+  tab_trainings: 'Séances'
   tab_attendances: 'Participation'
   tab_stats: 'Stats'
   text_home: 'Plein d''infos ici'
@@ -47,19 +48,19 @@ fr:
   members_2: 'Ajouter un membre'
   members_3: 'Liste des abonnements'
   members_4: 'Ajouter un abonnement'
-  trainings_1: 'Liste des sessions'
-  trainings_2: 'Ajouter une session'
+  trainings_1: 'Liste des séances'
+  trainings_2: 'Ajouter une séance'
   trainings_3: 'Enregistrer les participants'
   stats_1: 'Ma belle stat 1'
   stats_2: 'Ma belle stat 2'
 
   # views
   h1_users: 'Tous les adhérents'
-  h1_trainings: 'Toutes les sessions'
+  h1_trainings: 'Toutes les séances'
   h1_user_show: 'Infos adhérent '
   h1_membership_show: 'Adhésion '
   h1_training_show: 'Session du '
-
+  h1_training_new: 'Créer une nouvelle séance'
   # memberships
   no_membership: 'Aucun'
   ok: 'Valide'
@@ -91,12 +92,39 @@ fr:
   membership_application_incomplete: 'Dossier incomplet !'
 
   # attendances
-  attendances_details: 'Détail de la séance d''entraînement'
+  attendances_details: 'Relevé des présents'
   attending_members_count: 'personne/s présente/s'
   attending_teachers_count: 'entraîneur/s présent/s'
   attending_board_members_count: 'membre/s du CA présent/s'
+
+  # trainings
   training_incidents: 'incidents'
   trainer_name: 'Entraîneur'
+  training_date: 'Date de la séance'
+  training_details: 'Détail de la séance'
+  training_location: 'Lieu de la séance'
+  ca_members_count: 'Nombre de membres du CA présents'
+  incidents_count: 'Nombre d''incidents'
+  training_duration: ' heure/s'
+  training_durations: 'Durée de la séance'
+  training_theme: 'Activité'
+  user_training_sessions: 'Toutes les séances'
+  attendances: 'Séances d''entraînement'
+  new_button: 'Nouveau'
+  new_trainer: 'Ajouter entraîneur'
+  new_training: 'Créer la nouvelle séance'
+
+  #training themes
+  wrestling: 'Lutte'
+  yoga: 'Yoga'
+  running: 'Course à pied'
+  ppg: 'PPG'
+
+
+  #training places
+  tour_des_dames_fitness: 'Tour des dames : salle fitness'
+  tour_des_dames_dojo: 'Tour des dames : salle dojo'
+  autre_endroit: 'Un tout autre endroit'
 
   # users
   user_details: 'Coordonnées adhérent'
@@ -121,8 +149,11 @@ fr:
   postcode: 'Code postal'
   city: 'Ville'
   country: 'Pays'
-  user_training_sessions: 'Toutes les séances'
-  attendances: 'Séances d''entraînement'
+
+  views:
+    # kaminari
+    pagination:
+      truncate: '...'
 
   # formats
   time:

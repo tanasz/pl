@@ -4,10 +4,17 @@ class TrainingsController < ApplicationController
     @trainings = Training.active.order(:date_time).page params[:page]
   end
 
-  def create
+  def new
+    @training = Training.new
   end
 
-  def new
+  def create
+    @training = Training.new(training_params)
+    if @training.save
+      redirect_to training_path(@training)
+    else
+      render :new
+    end
   end
 
   def show
@@ -22,4 +29,28 @@ class TrainingsController < ApplicationController
 
   def update
   end
+
+
+
+  def remove_trainer
+  end
+
+  def add_board_member
+  end
+
+  def remove_board_member
+  end
+
+  private
+
+  def training_params
+    params.require(:training).permit(:date_time, :theme, :location, :duration)
+  end
+
+  def find_training
+    @training = Training.find(params[:id])
+  end
+
 end
+
+

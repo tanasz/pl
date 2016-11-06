@@ -1,2 +1,21 @@
-<h1>Trainings#new</h1>
-<p>Find me in app/views/trainings/new.html.erb</p>
+<%= render 'shared/header_show', { h1_show: 'h1_training_new', header_title: "" } %>
+
+<%= render 'shared/accordion-page-top' %>
+
+<% order_number = 1 %>
+<%= render 'shared/folding_panel_top', { title: 'training_details', order_number: order_number, collapse: 'in' } %>
+<%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
+
+<%= simple_form_for(@training) do |f| %>
+  <%= f.input :date_time, as: :date, html5: true %>
+  <%= f.input :date_time, start_year: DateTime.now.year - 5, end_year: DateTime.now.year + 5, order: [:day, :month, :year] %>
+  <%= f.input :theme,     label: t('training_theme'),  collection: [t('wrestling'), t('yoga'), t('running'), t('ppg')] %>
+  <%= f.input :location,  label: t('training_location'),  collection: [t('tour_des_dames_dojo'), t('tour_des_dames_fitness'), t('autre_endroit')] %>
+  <%= f.input :duration,  label: t('training_durations'), collection: ['1', '1:30', '2'] %>
+  <%= f.button :submit, t('new_training') %>
+<% end %>
+
+
+<%= render 'shared/folding_panel_bottom' %>
+
+<%= render 'shared/accordion-page-bottom' %>

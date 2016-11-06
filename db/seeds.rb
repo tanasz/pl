@@ -59,14 +59,15 @@ trainings     = Array.new
 debut         = '02 Sep 2013 18:00:00'.to_datetime
 i             = 1
 board_members = User.is_board_member
+#puts board_members
 teachers      = User.is_teacher
 500.times do
   i += 3
   t = Training.new
   t.date_time = debut + i.days
   t.duration = ['1', '1:30', '2'].sample # en heures ?
-  t.theme = ['Wrestling', 'Physical prep', 'Yoga', 'Running'].sample
-  t.location = ['Tour des dames','Ailleurs'].sample
+  t.theme = ['wrestling', 'yoga', 'running', 'ppg'].sample
+  t.location = ['tour_des_dames_dojo','tour_des_dames_fitness', 'autre_endroit'].sample
   t.board_members = [board_members.sample, board_members.sample]
   t.teachers = [teachers.sample, teachers.sample]
   t.save
