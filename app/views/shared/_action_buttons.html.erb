@@ -1,6 +1,21 @@
+<div class='btn-group'>
+<%= link_to (''), 'new',
+    class: 'btn btn-warning fa fa-calendar-plus-o fa-2x',
+    "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('h1_training_new')
+%>
 
-<%= link_to ('new training'), 'new', class: "btn" %>
-<%= link_to (t 'new_trainer'),  new_teacher_training_path(@training),       class: "btn" %>
-<%= link_to ('board member'),   new_board_member_training_path(@training),  class: "btn" %>
-<%= link_to ('attendance'),     new_training_attendance_path(@training),    class: "btn" %>
+<%= link_to (''), add_teacher_training_path(@training),
+    class: 'btn btn-default fa fa-mortar-board fa-2x',
+    "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('new_trainer')
+%>
 
+<%= link_to (''), add_board_member_training_path(@training),
+    class: 'btn btn-default fa fa-user-circle-o fa-2x',
+    "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('new_board_member')
+%>
+
+<%= link_to (''), new_training_attendance_path(@training),
+    class: 'btn btn-default fa fa-user-plus fa-2x',
+    "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('new_member_attendance')
+%>
+</div>

@@ -41,14 +41,14 @@ fr:
   tab_stats: 'Stats'
   text_home: 'Plein d''infos ici'
   text_members: 'Les adhérents de notre club'
-  text_sessions: 'Nos séances d''entraînement'
+  text_trainings: 'Nos séances d''entraînement'
   text_attendance: 'La participation à nos séances d''entraînement'
   text_stats: 'Stats diverses'
   members_1: 'Liste des adhérents'
   members_2: 'Ajouter un membre'
   members_3: 'Liste des abonnements'
   members_4: 'Ajouter un abonnement'
-  trainings_1: 'Liste des séances'
+  trainings_1: 'Toutes les séances'
   trainings_2: 'Ajouter une séance'
   trainings_3: 'Enregistrer les participants'
   stats_1: 'Ma belle stat 1'
@@ -59,8 +59,9 @@ fr:
   h1_trainings: 'Toutes les séances'
   h1_user_show: 'Infos adhérent '
   h1_membership_show: 'Adhésion '
-  h1_training_show: 'Session du '
+  h1_training_show: 'Séance du '
   h1_training_new: 'Créer une nouvelle séance'
+
   # memberships
   no_membership: 'Aucun'
   ok: 'Valide'
@@ -111,7 +112,9 @@ fr:
   user_training_sessions: 'Toutes les séances'
   attendances: 'Séances d''entraînement'
   new_button: 'Nouveau'
-  new_trainer: 'Ajouter entraîneur'
+  new_trainer: 'Ajouter présence d''un entraîneur'
+  new_board_member: 'Ajouter présence d''un membre du CA'
+  new_member_attendance: 'Ajouter présence d''un membre'
   new_training: 'Créer la nouvelle séance'
 
   #training themes

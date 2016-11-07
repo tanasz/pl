@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     resources :trainings do
       resources :attendances, only: [:show, :new, :index, :edit]
       member do
-        get 'new_teacher',      to: 'attendances#new_teacher'
-        get 'new_board_member', to: 'attendances#new_board_member'
+        get 'add_teacher',      to: 'attendances#add_teacher'
+        get 'add_board_member', to: 'attendances#add_board_member'
         get 'training_id:/attendances/new', to: 'attendances#new'
       end
     end
