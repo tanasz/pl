@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @datetime = Date.today
+    @attendances = Attendance.all
   end
 
   def stats

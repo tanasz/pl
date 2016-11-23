@@ -51,6 +51,7 @@ fr:
   trainings_1: 'Toutes les séances'
   trainings_2: 'Ajouter une séance'
   trainings_3: 'Enregistrer les participants'
+  attendances_1: 'Toutes les présences enregistrées'
   stats_1: 'Ma belle stat 1'
   stats_2: 'Ma belle stat 2'
 
@@ -61,6 +62,7 @@ fr:
   h1_membership_show: 'Adhésion '
   h1_training_show: 'Séance du '
   h1_training_new: 'Créer une nouvelle séance'
+  h1_attendances: 'Toutes les présences enregistrées'
 
   # memberships
   no_membership: 'Aucun'

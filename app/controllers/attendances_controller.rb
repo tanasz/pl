@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  before_action :find_user_training, only: [:new_teacher, :new_board_member]
+  # before_action :find_user_training pas sûre que ça serve
   before_action :find_training, only: [:new]
 
   def index
@@ -9,16 +9,6 @@ class AttendancesController < ApplicationController
   def new
     @attendance = Attendance.new
     @test = 'normal'
-  end
-
-  def new_teacher
-    @attendance = Attendance.new
-    @test = 'teacher'
-  end
-
-  def new_board_member
-    @attendance = Attendance.new
-    @test = 'board_member'
   end
 
   def create
@@ -42,14 +32,16 @@ class AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance).permit()
+    params.require(:attendance).permit() # paramètres à définir
   end
 
-  def find_attendance # utile ?
+  def find_attendance
+    # sert à qqq chose ?
     @attendance = Attendance.find(params[:id])
   end
 
   def find_user_training
+    # sert à qqq chose ?
     @training = Training.find(params[:id])
   end
 

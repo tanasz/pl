@@ -1,0 +1,23 @@
+<div class="row list list-group">
+
+    <div class="list-group-item active"><%= t 'h1_attendances' %></div>
+
+    <% @attendances.each do |a| %>
+      <%= link_to a.training, class:'list-group-item clearfix' do %>
+        <div class='col-xs-3'>
+          <%=  a.training.theme %>
+        </div>
+        <div class='col-xs-3'>
+          <%= l a.training.date_time, format: :complete %>
+        </div>
+        <div class='col-xs-3'>
+          <%= a.user.first_name %>
+        </div>
+        <div class='col-xs-3'>
+          <%= a.user.last_name %>
+        </div>
+      <% end %>
+    <% end %>
+
+</div>
+

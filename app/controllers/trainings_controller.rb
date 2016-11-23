@@ -30,9 +30,10 @@ class TrainingsController < ApplicationController
   def update
   end
 
+  def add_teacher
+  end
 
-
-  def remove_trainer
+  def remove_teacher
   end
 
   def add_board_member

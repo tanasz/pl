@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   get 'stats', to: 'pages#stats'
 
   scope '(:locale)', locale: /fr|en/ do
+    get 'attendances', to: 'attendances#index'
     resources :memberships, except: [:create, :destroy]
     resources :users, only: [:new, :show, :index, :edit]
     resources :trainings do
       resources :attendances, only: [:show, :new, :index, :edit]
       member do
-        get 'add_teacher',      to: 'attendances#add_teacher'
-        get 'add_board_member', to: 'attendances#add_board_member'
+        get 'add_teacher',                  to: 'trainings#add_teacher'
+        get 'add_board_member',             to: 'trainings#add_board_member'
         get 'training_id:/attendances/new', to: 'attendances#new'
       end
     end
