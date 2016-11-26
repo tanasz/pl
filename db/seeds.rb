@@ -19,8 +19,8 @@ users = Array.new
   u.birthplace_city = Faker::GameOfThrones.city
   u.birthplace_postcode = "FR" + rand(00100..93500).to_s
   u.birthplace_country = 'FRANCE'
-  u.is_board_member = rand(0..100) < 10 ? true : false
-  u.is_teacher = rand(0..100) < 5 ? true : false
+  u.board_member = rand(0..100) < 10 ? true : false
+  u.teacher = rand(0..100) < 20 ? true : false
   u.gender = ['female', 'female', 'female' , 'trans', 'male', 'male', 'male', 'male', 'male', 'male', '?'].sample
   u.mobile_phone = Faker::PhoneNumber.phone_number
   u.emergency_contact_name = Faker::Superhero.name
@@ -58,9 +58,9 @@ puts "- #{memberships.count} memberships seeded!"
 trainings     = Array.new
 debut         = '02 Sep 2013 18:00:00'.to_datetime
 i             = 1
-board_members = User.is_board_member
+board_members = User.board_members
 #puts board_members
-teachers      = User.is_teacher
+teachers      = User.teachers
 500.times do
   i += 3
   t = Training.new

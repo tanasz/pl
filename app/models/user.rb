@@ -11,8 +11,8 @@ class User < ApplicationRecord
                           :join_table => 'trainings_teachers',
                           :foreign_key => 'trainings_id',
                           :association_foreign_key => 'teachers_id'
-  scope :is_teacher, -> {where('is_teacher = ?', true)}
-  scope :is_board_member, -> {where('is_board_member = ?', true)}
+  scope :teachers, -> {where('teacher', true)}
+  scope :board_members, -> {where('board_member', true)}
   scope :active, -> {where('date_time >= ?', Time.current)}
 
   # Include default devise modules. Others available are:
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def get_user_type_icon
-    self.is_board_member == true ? 'users' : 'user'
+    self.board_member? ? 'users' : 'user'
   end
 
   def get_memberships
@@ -54,9 +54,9 @@ class User < ApplicationRecord
     self.attendances.order(training_id: :desc)
   end
 
-  def teacher?
-    self.is_teacher == true
-  end
+  # def teacher?
+  #   self.teacher? == true
+  # end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)

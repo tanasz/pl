@@ -1,4 +1,5 @@
 class TrainingsController < ApplicationController
+  before_action :find_training, only: [:pick_teacher,:show]
 
   def index
     @trainings = Training.active.order(:date_time).page params[:page]
@@ -18,7 +19,6 @@ class TrainingsController < ApplicationController
   end
 
   def show
-    @training = Training.find(params[:id])
     @attending_users = Attendance.where(training_id: params[:id])
     @attending_teachers = @training.teachers
     @attending_board_members = @training.board_members
@@ -30,7 +30,8 @@ class TrainingsController < ApplicationController
   def update
   end
 
-  def add_teacher
+  def pick_teacher
+    @teachers = User.teachers.all
   end
 
   def remove_teacher
@@ -48,8 +49,14 @@ class TrainingsController < ApplicationController
     params.require(:training).permit(:date_time, :theme, :location, :duration)
   end
 
+  def find_trainingeuh
+    @training = Training.find(params[:id])
+  end
+
   def find_training
     @training = Training.find(params[:id])
+    #@training = Training.find(1026)
+    @toto = 'berk'
   end
 
 end

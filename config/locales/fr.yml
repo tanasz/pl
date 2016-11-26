@@ -63,6 +63,7 @@ fr:
   h1_training_show: 'Séance du '
   h1_training_new: 'Créer une nouvelle séance'
   h1_attendances: 'Toutes les présences enregistrées'
+  h1_pick_teacher: 'Sélectionner un coach'
 
   # memberships
   no_membership: 'Aucun'
@@ -114,7 +115,7 @@ fr:
   user_training_sessions: 'Toutes les séances'
   attendances: 'Séances d''entraînement'
   new_button: 'Nouveau'
-  new_trainer: 'Ajouter présence d''un entraîneur'
+  new_teacher: 'Ajouter présence d''un entraîneur'
   new_board_member: 'Ajouter présence d''un membre du CA'
   new_member_attendance: 'Ajouter présence d''un membre'
   new_training: 'Créer la nouvelle séance'
