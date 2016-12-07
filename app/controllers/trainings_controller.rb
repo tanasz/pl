@@ -1,5 +1,5 @@
 class TrainingsController < ApplicationController
-  before_action :find_training, only: [:pick_teacher,:show]
+  before_action :find_training, only: [:pick_teacher,:show,:update]
 
   def index
     @trainings = Training.active.order(:date_time).page params[:page]
@@ -28,16 +28,24 @@ class TrainingsController < ApplicationController
   end
 
   def update
+    params[:training][:teacher_ids].each do |t|
+      @teacher = User.find(t.to_i)
+      @training.teachers << @teacher unless @training.teachers.include?(@teacher)
+    end
+    flash[:alert] = t 'training_updated'
+    @training.save
+    redirect_to training_path(@training)
   end
 
   def pick_teacher
-    @teachers = User.teachers.all
+    render layout: false
+  end
+
+  def pick_board_member
+    render layout: false
   end
 
   def remove_teacher
-  end
-
-  def add_board_member
   end
 
   def remove_board_member
@@ -49,14 +57,8 @@ class TrainingsController < ApplicationController
     params.require(:training).permit(:date_time, :theme, :location, :duration)
   end
 
-  def find_trainingeuh
-    @training = Training.find(params[:id])
-  end
-
   def find_training
     @training = Training.find(params[:id])
-    #@training = Training.find(1026)
-    @toto = 'berk'
   end
 
 end

@@ -4,5 +4,7 @@
                 <% else %>
                   <div class='inner-accordion <%= additional_class ||= nil %>'>
                 <% end %>
+                <%= puts field_name %>
+                <% field_value = t field_value if translate ||= false %>
                     <input type='text' class='form-control' disabled placeholder='<%= t field_name %>' value='<%= field_value %>' >
                   </div>

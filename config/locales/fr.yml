@@ -119,6 +119,8 @@ fr:
   new_board_member: 'Ajouter présence d''un membre du CA'
   new_member_attendance: 'Ajouter présence d''un membre'
   new_training: 'Créer la nouvelle séance'
+  pick_a_teacher: 'Ajouter un ou plusieurs entraîneurs'
+  training_updated: 'Liste des entraîneurs mise à jour'
 
   #training themes
   wrestling: 'Lutte'

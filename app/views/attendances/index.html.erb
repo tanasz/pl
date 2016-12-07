@@ -5,7 +5,7 @@
     <% @attendances.each do |a| %>
       <%= link_to a.training, class:'list-group-item clearfix' do %>
         <div class='col-xs-3'>
-          <%=  a.training.theme %>
+          <%= t a.training.theme %>
         </div>
         <div class='col-xs-3'>
           <%= l a.training.date_time, format: :complete %>
