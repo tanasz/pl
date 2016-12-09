@@ -10,7 +10,7 @@
 <%= render 'shared/folding_panel_top', { title: 'training_details', order_number: order_number, collapse: 'in' } %>
 <%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
 <%= render 'shared/item_field', { icone: 'home', field_name: 'training_location', field_value: @training.location ||= '', translate: true } %>
-<%= render 'shared/item_field', { icone: 'gear', field_name: 'training_theme', field_value: @training.theme ||= '', translate: true } %>
+<%= render 'shared/item_field', { icone: 'gear', field_name: 'training_theme', field_value: @training.theme ||= '' } %>
 <% enough_ca_members = @training.board_members.count >= 2 %>
 <%= render 'shared/item_field', { icone: 'users', field_name: 'ca_members_count', field_value: @training.board_members.count ||= '', additional_class: enough_ca_members ? '' : 'has-warning' } %>
 <% incidents = @attending_users.count > 0 ? @attending_users.map { |training| training.incident ? 1 : 0 }.inject(:+) : 0 %>

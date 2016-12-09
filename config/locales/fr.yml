@@ -96,10 +96,10 @@ fr:
   membership_application_incomplete: 'Dossier incomplet !'
 
   # attendances
-  attendances_details: 'Présents'
-  attending_members_count: 'adhérent/e/s'
-  attending_teachers_count: 'entraîneur/s'
-  attending_board_members_count: 'membre/s du CA'
+  attendances_details: 'Relevé des présents'
+  attending_members_count: 'personne/s présente/s'
+  attending_teachers_count: 'entraîneur/s présent/s'
+  attending_board_members_count: 'membre/s du CA présent/s'
 
   # trainings
   training_incidents: 'incidents'
@@ -120,7 +120,7 @@ fr:
   new_member_attendance: 'Ajouter présence d''un membre'
   new_training: 'Créer la nouvelle séance'
   pick_a_teacher: 'Ajouter un ou plusieurs entraîneurs'
-  training_updated: 'Mise à jour effectuée'
+  training_updated: 'Liste des entraîneurs mise à jour'
 
   #training themes
   wrestling: 'Lutte'

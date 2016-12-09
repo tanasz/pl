@@ -10,14 +10,12 @@ Rails.application.routes.draw do
     resources :memberships, except: [:create, :destroy]
     resources :users, only: [:new, :show, :index, :edit]
     resources :trainings do
+      resources :attendances, only: [:show, :new, :index, :edit]
       member do
-        get 'pick_teacher',                         to: 'trainings#pick_teacher'
-        get 'remove_teacher/:teacher_id',           to: 'trainings#remove_teacher'
-        get 'pick_board_member',                    to: 'trainings#pick_board_member'
-        get 'remove_board_member/:board_member_id', to: 'trainings#remove_board_member'
-        get 'training_id:/attendances/new',         to: 'attendances#new'
+        get 'pick_teacher',                 to: 'trainings#pick_teacher'
+        get 'add_board_member',             to: 'trainings#add_board_member'
+        get 'training_id:/attendances/new', to: 'attendances#new'
       end
-    resources :attendances, only: [:show, :new, :index, :edit]
     end
   end
 end
