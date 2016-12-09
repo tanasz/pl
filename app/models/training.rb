@@ -11,4 +11,9 @@ class Training < ApplicationRecord
                           :foreign_key => 'teachers_id',
                           :association_foreign_key => 'trainings_id'
   scope :active, -> {where('date_time >= ?', Time.current)}
+
+  def remove_teacher(teacher)
+    self.teachers.delete(teacher)
+  end
+
 end

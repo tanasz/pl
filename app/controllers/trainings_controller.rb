@@ -1,6 +1,8 @@
 class TrainingsController < ApplicationController
-  before_action :find_training, only: [:pick_teacher,:show,:update]
-
+  before_action :find_training,
+    only: [:show, :update, :pick_teacher, :remove_teacher, :pick_board_member, :remove_board_member]
+  before_action :find_user,
+    only: [:remove_teacher]
   def index
     @trainings = Training.active.order(:date_time).page params[:page]
   end
@@ -46,6 +48,8 @@ class TrainingsController < ApplicationController
   end
 
   def remove_teacher
+    @training.remove_teacher(@teacher)
+    redirect_to training_path(@training)
   end
 
   def remove_board_member
@@ -59,6 +63,10 @@ class TrainingsController < ApplicationController
 
   def find_training
     @training = Training.find(params[:id])
+  end
+
+  def find_user
+    @teacher = User.find(params[:teacher_id])
   end
 
 end

@@ -5,13 +5,20 @@
     "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('h1_training_new')
 %>
 
+<%= link_to (''), remove_training_teacher_path(@training.teachers, User.find(42)),
+    class: 'btn btn-default fa fa-mortar-board fa-2x',
+    #'data-toggle' => 'tooltip', 'data-placement' => 'bottom','title' => t('new_teacher')
+    'data-toggle' => 'modal', 'data-target' => '#ListeModal'
+%>
+
+
 <%= link_to (''), pick_teacher_training_path(@training),
     class: 'btn btn-default fa fa-mortar-board fa-2x',
     #'data-toggle' => 'tooltip', 'data-placement' => 'bottom','title' => t('new_teacher')
     'data-toggle' => 'modal', 'data-target' => '#ListeModal'
 %>
 
-<%= link_to (''), add_board_member_training_path(@training),
+<%= link_to (''), pick_board_member_training_path(@training),
     class: 'btn btn-default fa fa-user-circle-o fa-2x',
     "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('new_board_member')
 %>
