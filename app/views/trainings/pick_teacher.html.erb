@@ -1,14 +1,15 @@
+<div>
 <%= simple_form_for @training do |f| %>
 
-<%= f.association :teachers,
-    label: t('pick_a_teacher'),
-    collection: User.teachers.all.sort_by { |t| t.last_name },
-    include_blank: false,
-    label_method: :full_name,
-    value_method: :id,
-    include_hidden: false
-%>
-
+  <%= f.association :teachers,
+      label: t('pick_a_teacher'),
+      collection: User.teachers.all.sort_by { |t| t.last_name },
+      include_blank: false,
+      label_method: :full_name,
+      value_method: :id,
+      include_hidden: false
+  %>
   <%= f.button :submit %>
+
 <% end %>
-<%= puts "HAHA #{@training}" %>
+</div>
