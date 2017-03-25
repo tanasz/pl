@@ -1,8 +1,10 @@
 class TrainingsController < ApplicationController
   before_action :find_training,
-    only: [:new_teacher, :new_board_member, :show, :update]
+    only: [:show, :update]
+  before_action :find_training_id,
+    only: [:new_teacher, :new_board_member, :destroy_teacher, :destroy_board_member]
   before_action :find_user,
-    only: [:delete_teacher, :delete_board_member]
+    only: [:destroy_teacher, :destroy_board_member]
 
   def index
     @trainings = Training.active.order(:date_time).page params[:page]
@@ -22,9 +24,9 @@ class TrainingsController < ApplicationController
   end
 
   def show
-    @attending_users = Attendance.where(training_id: params[:id])
-    @attending_teachers = @training.teachers.order(:last_name)
-    @attending_board_members = @training.board_members.order(:last_name)
+    @attending_users          = Attendance.where(training_id: params[:id])
+    @attending_teachers       = @training.teachers.order(:last_name)
+    @attending_board_members  = @training.board_members.order(:last_name)
   end
 
   def destroy
@@ -39,8 +41,8 @@ class TrainingsController < ApplicationController
       @training.teachers << @teacher unless @training.teachers.include?(@teacher)
     end unless teacher_list.size < 1
 
-    params[:training][:board_member_ids].each do |t|
-      @board_member = User.find(t.to_i)
+    board_member_list.each do |b|
+      @board_member = User.find(b.to_i)
       @training.board_members << @board_member unless @training.board_members.include?(@board_member)
     end unless board_member_list.size < 1
 
@@ -58,12 +60,12 @@ class TrainingsController < ApplicationController
     render layout: false
   end
 
-  def delete_teacher
+  def destroy_teacher
     @training.delete_teacher(@user)
     redirect_to training_path(@training)
   end
 
-  def delete_board_member
+  def destroy_board_member
     @training.delete_board_member(@user)
     redirect_to training_path(@training)
   end
@@ -76,13 +78,16 @@ class TrainingsController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
-    puts "=== USER =>#{@user}<==="
   end
 
   def find_training
     @training = Training.find(params[:id])
-    puts "=== TRNG =>#{@training}<==="
   end
+
+  def find_training_id
+    @training = Training.find(params[:training_id])
+  end
+
 
 end
 

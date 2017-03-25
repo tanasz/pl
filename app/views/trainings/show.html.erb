@@ -1,4 +1,5 @@
 <%= render 'shared/header_show', { h1_show: 'h1_training_show', header_title: "#{l @training.date_time, format: :complete } (#{ @training.duration } #{t 'training_duration' } )" } %>
+
 <%= render 'shared/accordion-page-top' %>
 
 <% order_number = 1 %>
@@ -22,15 +23,19 @@
 <% order_number = 3 %>
 <%= render 'shared/folding_panel_top', { title: 'attendances_details', order_number: order_number, collapse: 'in' } %>
 <%= render 'shared/folding_panel_inner_top', { subtitle: nil } %>
+
 <% no_results = @attending_teachers.empty? %>
 <%= render 'shared/item_field', { icone: 'graduation-cap', field_name: 'attending_teachers_count', field_value: "#{ @attending_teachers.count } #{ t 'attending_teachers_count' }" } %>
 <%= render partial: 'shared/attending_teachers', collection: @attending_teachers unless no_results %>
+
 <% no_results = @attending_board_members.empty? %>
 <%= render 'shared/item_field', { icone: 'graduation-cap', field_name: 'attending_board_members_count', field_value: "#{ @attending_board_members.count } #{ t 'attending_board_members_count' }" } %>
 <%= render partial: 'shared/attending_board_members', collection: @attending_board_members unless no_results %>
+
 <% no_results = @attending_users.empty? %>
 <%= render 'shared/item_field', { icone: 'users', field_name: 'attending_members_count', field_value: "#{ @attending_users.count } #{ t 'attending_members_count' }" } %>
 <%= render partial: 'shared/attending_users', collection: @attending_users unless no_results %>
+
 <%= render 'shared/folding_panel_bottom' %>
 
 <%= render 'shared/accordion-page-bottom' %>

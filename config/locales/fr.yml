@@ -66,7 +66,7 @@ fr:
   h1_pick_teacher: 'Sélectionner un coach'
 
   # memberships
-  no_membership: 'Aucun'
+  no_membership: 'Pas d''adhésion en cours'
   ok: 'Valide'
   waiting: 'En attente'
   revoked: 'Radié'

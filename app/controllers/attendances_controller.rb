@@ -7,11 +7,13 @@ class AttendancesController < ApplicationController
   end
 
   def new
+    puts "########################################################################"
     @attendance = Attendance.new
     @test = 'normal'
   end
 
   def create
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     @attendance = Attendance.new(attendance_params)
     if @attendance.save
       redirect_to attendance_path(@attendance)

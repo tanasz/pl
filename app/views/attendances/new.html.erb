@@ -1,5 +1,23 @@
-<h1>Attendances#new</h1>
+<!-- <h1>Attendances#new</h1>
 <p>Find me in app/views/attendances/new.html.erb</p>
 Zou
-<%= @test %>
-...><%= @training.location %><...
+ -->
+
+<div>
+<%= simple_form_for @training do |f| %>
+
+  <%= f.association :attendances,
+      label: t('pick_an_user'),
+      collection: User.all.sort_by { |u| u.last_name },
+      include_blank: false,
+      label_method: :full_name,
+      value_method: :id,
+      include_hidden: false
+  %>
+  <%= f.button :submit %>
+  <%= @test %>
+
+<% end %>
+</div>
+
+

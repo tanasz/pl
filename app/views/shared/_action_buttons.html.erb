@@ -13,7 +13,8 @@
 
 <%= link_to (''), training_new_board_member_path(@training),
     class: 'btn btn-default fa fa-user-circle-o fa-2x',
-    "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('new_board_member')
+    'data-toggle' => 'modal', 'data-target' => '#ListeModal'
+  #  "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => t('new_board_member')
 %>
 
 <%= link_to (''), new_training_attendance_path(@training),
